@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"rel="stylesheet" />
+    <title>Benito Gallardo Peral | Web Portfolio</title>
+</head>
+  <!-- navigation bar -->
+  <header>
+    <nav>
+      <a href="#" class="logo"><span>Beni</span>to</a>
+      <ul class="links">
+        <a href="#home">Inicio</a>
+        <a href="#about">Sobre mi</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#experience">Experiencia</a>
+        <a href="#contact">Contacto</a>
+      </ul>
+
+      <i class='bx bx-menu' id="menu"></i>
+
+      <a href="#cv" class="btn" onclick="toggleCvDownload()">Descargar CV</a>
+    </nav>
+  </header>
+<body>
+
+ <!-- home section -->
+ <section id="home">
+    <div class="info-box">
+      <div class="inline">
+        <img class="avatar" src="assets/fotob.webp" alt="">
+        <h1>¡Hola! Soy <span>Benito</span><span> Gallardo</span></h1>
+      </div>
+      <h3><span>Desarrollador de Aplicaciones Multiplataforma</span></h3>
+      <p>¡Bienvenido a mi portfolio! Aquí podrás conocer más sobre mi, ver mis proyectos, descargar mi CV y
+        contactar conmigo.</p>
+    </div>
+    
+    <div class="popup" id="popup-1">
+        <div class="overlay"></div>
+        <div class="content">
+          <div class="close-btn" onclick="toggleCvDownload()">&times;</div>
+          <div class="btn"><a href="/assets/CV-BenitoGallardoPeral(Ingles).pdf"
+              download="CV-BenitoGallardoPeral(Ingles).pdf">English</a></div>
+          <div class="btn"><a href="/assets/CV-BenitoGallardoPeral(Español).pdf"
+              download="CV-BenitoGallardoPeral(Español).pdf">Español</a></div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <div class="social-icons">
+          <a href="https://https://www.linkedin.com/in/benito-gallardo-peral/" target="_blank"
+            rel="noopener noreferrer"><i class='bx bxl-linkedin-square'></i></a>
+          <a href="https://github.com/benitogallardo" target="_blank" rel="noopener noreferrer"><i
+              class='bx bxl-github'></i></a>
+        </div>
+      </div>
+      <a href="#cv" class="btn-phone" onclick="toggleCvDownload()">Descargar CV</a>
+    </section>
+
+
+
+</body>
+
+</html>

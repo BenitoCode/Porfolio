@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins";
+  }
+
+  :root {
+    --background: rgb(27, 27, 27);
+    --second-background: rgb(21, 21, 21);
+    --semitransparent-background: rgba(15, 15, 15, 0.8);
+    --gradient: linear-gradient(
+      to left,
+      rgb(255, 225, 0) 0%,
+      rgb(144, 140, 140) 100%
+    );
+    --card-gradient: linear-gradient(
+      to bottom,
+      rgb(144, 140, 140) 0%,
+      rgb(255, 225, 0) 100%
+    );
+    --main-color:  rgb(255, 225, 0);
+    --card-color: rgb(87, 80, 80)
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--background);
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 2em 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--semitransparent-background);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+  }
+  
+  nav ul a {
+    color: white;
+    opacity: 0.7;
+    transition: 0.2s ease-in-out;
+  }
+  
+  nav ul a:hover {
+    opacity: 1;
+    color: var(--main-color);
+  }
+
+
+  
+.logo {
+    font-size: 2em;
+    color: white;
+    font-weight: 800;
+    opacity: 0.8;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .logo:hover {
+    opacity: 1;
+  }
+  
+
+/*** Bton para descar PDF  ******/  
+.btn {
+    max-width: fit-content;
+    padding: 0.5em 1em;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 0.5em;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .popup .overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(84, 84, 84, 0.7);
+    z-index: 1;
+    display: none;
+  }
+
+  
+.popup .content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgb(0, 0, 0);
+    width: 15%;
+    height: 15%;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    gap: 0.5rem;
+    border-radius: 1rem;
+  }
+  
+  .popup .close-btn {
+    position: absolute;
+    right: 3%;
+    top: 8%;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.526);
+    color: white;
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 300;
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .popup .close-btn:hover {
+    background: var(--main-color);
+  }
+  
+  .popup .content .btn a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .popup.active .overlay {
+    display: block;
+  }
+  
+  .popup.active .content {
+    transition: all 0.3s ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .btn:hover {
+    background-color: var(--main-color);
+    border: 2px solid rgb(78, 4, 112);
+  }
+  
+  span {
+    background: var(--gradient);
+    background-clip: text;
+    color: transparent;
+  }
+
+
+  
+#menu {
+    color: white;
+    font-size: 3em;
+    display: none;
+  }
+  
+  section {
+    min-height: 100vh;
+    padding: 5% 15%;
+  }
+  #home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    color: white;
+  }
+  #home img {
+    width: 35%;
+    height: 35%;
+    min-width: 35%;
+  }
+  
+  .btn-phone {
+    display: none;
+  }
+  
+  .inline {
+    display: inline-flex;
+  }
+  
+  .info-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5em;
+    max-width: 800px;
+  }
+  
+  .info-box h1 {
+    font-size: 4em;
+    font-weight: 500;
+  }
+  
+  .info-box h3 {
+    font-size: 2em;
+    font-weight: 400;
+  }
+  
+  .info-box p {
+    opacity: 0.7;
+  }
+  
+  .social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    font-size: 1.8rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 0.8rem 0.8rem 0.8rem 0.8rem;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .social-icons a:hover {
+    color: var(--text-color);
+    transform: scale(1.3) translateY(-5px);
+    box-shadow: 0 0 25px var(--main-color);
+    background-color: var(--main-color);
+  }
