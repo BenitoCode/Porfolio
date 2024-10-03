@@ -244,3 +244,130 @@
     box-shadow: 0 0 25px var(--main-color);
     background-color: var(--main-color);
   }
+
+
+  /* barra de subir y bajar*/ 
+  ::-webkit-scrollbar {
+    width: 15px;
+    background-color: var(--background);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      rgb(110, 108, 108) 0%,
+      rgb(247, 255, 10) 100%
+    );
+  }
+
+
+/***proyectooos ****/
+
+  .header {
+    text-align: center;
+    font-size: 2em;
+    margin: 0.5em 0;
+    color: white;
+    opacity: 0.8;
+  }
+  
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 2em;
+  }
+  .box {
+    border: 3px solid var(--main-color);
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    object-fit: cover;
+    padding: 0.6em;
+    color: white;
+    background: var(--card-color);
+    transition: 0.3s ease-in-out;
+  }
+  
+  .box h1,
+  span {
+    text-align: center;
+  }
+  .box:hover {
+    border: 3px solid rgb(255, 255, 255);
+  }
+  
+  .box p {
+    opacity: 0.8;
+  }
+  
+  .box img {
+    min-width: 25px;
+    border-radius: 0.5em;
+  }
+  
+  .box-text-img {
+    min-width: 25px;
+    border-radius: 0.5em;
+  }
+  
+  .width-max {
+    max-width: 100%;
+  }
+  
+  .btn-box-small {
+    display: flex;
+    width: 100%;
+  }
+  
+  .social-icons-small-40 {
+    display: flex;
+    width: 100%;
+    align-items: start;
+    justify-content: end;
+  }
+  
+  .social-icons-small-40 a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    font-size: 1rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 0.7rem 0.2rem 0.3rem 0.2rem;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .stack-icons-60 {
+    display: inline-flex;
+    width: 60%;
+    justify-content: start;
+    align-items: end;
+  }
+  
+  .stack-icons-60 img {
+    display: inline-flex;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    font-size: 2rem;
+    border-radius: 20%;
+    color: var(--main-color);
+    margin: 0.7rem 0.2rem 0.3rem 0.2rem;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .social-icons-small-40 a:hover {
+    color: var(--text-color);
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 0 10px var(--main-color);
+    background-color: var(--main-color);
+  }
+  
