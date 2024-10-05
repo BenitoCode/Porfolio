@@ -247,6 +247,8 @@ section {
   background-color: var(--background);
 }
 
+
+/********* barra naavegador *****************/
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     to bottom,
@@ -593,7 +595,7 @@ span {
   transform: translateX(-50%);
 }
 
-/* responsive website */
+/******************* responsive web  *************************/
 @media (min-width: 360px) and (max-width: 768px) {
 .section {
     padding: 4em 10%;
@@ -903,7 +905,7 @@ nav {
   }
 }
 
-/* responsive timeline */
+/******************* responsive *************************/
 @media (max-width: 768px) {
   .timeline-item {
     flex-direction: column;
