@@ -1,283 +1,319 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet" />
-  <title>Benito Gallardo Peral | Web Portfolio</title>
+  <link rel="icon" href="./assets/img/logo2.png" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- =====BOX ICONS===== -->
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+  <!--===== SCROLL REVEAL =====-->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <title>Benito Gallardo</title>
 </head>
 
 <body>
-  <!-- navigation bar -->
-  <header>
-    <nav>
-      <a href="#" class="logo"><span>Beni</span>to</a>
-      <ul class="links">
-        <a href="#home">Inicio</a>
-        <a href="#about">Sobre mi</a>
-        <a href="#projects">Proyectos</a>
-        <a href="#experience">Experiencia</a>
-        <a href="#contact">Contacto</a>
-      </ul>
 
-      <i class='bx bx-menu' id="menu"></i>
 
-      <a href="#cv" class="btn" onclick="toggleCvDownload()">Descargar CV</a>
+  <!--===== HEADER =====-->
+  <header class="l-header">
+    <nav class="nav bd-grid">
+      <div>
+        <!-- &#60; Akshay Kanherkar</&#62; -->
+
+        <a href="#home" class="nav-logo"><img src="./assets/img/logo2.png" class="mylogo" alt="Z" /></a>
+      </div>
+      <div class="welcome-container">
+        <h1 class="Middle-Head"><span class="title-name">BenitoCode</span></h1>
+      </div>
+
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#home" class="nav-link home active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link about">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#skills" class="nav-link skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-toggle" id="nav-toggle">
+        <i class="bx bx-menu"></i>
+      </div>
     </nav>
   </header>
-  <!-- home section -->
-  <section id="home">
-    <div class="info-box">
-      <div class="inline">
-        <img class="avatar" src="assets/fotob.webp" alt="">
-        <h1>¡Hola! Soy <span>Benito</span><span> Gallardo</span></h1>
-      </div>
-      <h3><span>Desarrollador de Aplicaciones Multiplataforma</span></h3>
-      <p>¡Bienvenido a mi portfolio! Aquí podrás conocer más sobre mi, ver mis proyectos, descargar mi CV y
-        contactar conmigo.</p>
-    </div>
-    <div class="popup" id="popup-1">
-      <div class="overlay"></div>
-      <div class="content">
-        <div class="close-btn" onclick="toggleCvDownload()">&times;</div>
-        <div class="btn"><a href="/assets/CV-BenitoGallardoPeral(Ingles).pdf"
-            download="CV-BenitoGallardoPeral(Ingles).pdf">English</a></div>
-        <div class="btn"><a href="/assets/CV-BenitoGallardoPeral(Español).pdf"
-            download="CV-BenitoGallardoPeral(Español).pdf">Español</a></div>
-      </div>
-    </div>
-    <div class="btn-box">
-      <div class="social-icons">
-        <a href="https://https://www.linkedin.com/in/benito-gallardo-peral/" target="_blank"
-          rel="noopener noreferrer"><i class='bx bxl-linkedin-square'></i></a>
-        <a href="https://github.com/benitogallardo" target="_blank" rel="noopener noreferrer"><i
-            class='bx bxl-github'></i></a>
-      </div>
-    </div>
-    <a href="#cv" class="btn-phone" onclick="toggleCvDownload()">Descargar CV</a>
-  </section>
 
-  <!-- projects -->
-  <section id="projects">
-    <h1 class="header"><span>Proy</span>ectos</h1>
-    <div class="projects-container">
+  <main class="l-main">
+    <!--===== HOME =====-->
+    <section class="home bd-grid section" id="home">
+      <div class="home-data"> 
+        <h2 class="home-title">
+          Hy! , I Am<br /> <span class="home-title-color Baloo">Benito Gallardo</span><br />
+          <span class="animate-charcter">Web Designer</span>
+        </h2>
 
-      <div class="box">
-        <div class="box-text-img">
-          <h1><span>Port</span>folio</h1>
-          <img class="width-max" src="assets/portfolio.webp" alt="miniatura del portfolio web">
-          <p>Este portfolio, lo he realizado unicamente con HTML5 CSS3 y un poco de JavaScript vanilla.</p>
+        <a href="/pdf/CV-BenitoGallardoPeral(Español).pdf " target="_blank" class="button">CV   <i class='bx bx-download'></i></a>
+      </div>
+
+      <div class="home-social">
+        <a href="https://www.linkedin.com/in/benito-gallardo-peral/" target="_blank" class="home-social-icon"><i
+            class="bx bxl-linkedin"></i></a>
+        <a href="https://github.com/BenitoCode" target="_blank" class="home-social-icon"><i
+            class="bx bxl-github"></i></a>
+      </div>
+
+      <div class="home-img">
+        <img src="assets/img/fotob.webp" alt="myzulfiqarIMG" class="myimage" />
+      </div>
+    </section>
+
+    <!--===== ABOUT =====-->
+    <section class="about section" id="about">
+      <h2 class="section-title">About</h2>
+      <div class="about-container bd-grid">
+        <div style="text-align: center">
+          <h2 class="about-subtitle">My Awesome Skills</h2>
+          <p class="about-text">
+            Enthusiastic and hardworking Full Stack Web Developer with a passion for designing and developing
+            user-friendly and responsive web applications.
+            With a strong foundation in both front-end and back-end technologies, I bring ideas to life by seamlessly
+            connecting the dots between design and
+            functionality. My mission is to build user-friendly, efficient, and secure web applications that exceed
+            expectations.
+          </p>
+          <br />
+          <p>
+           <b>Drop a mail @</b>  benito.gallardoperal@outlook.com
+            <i style="color: #4070f4; font-size: 1.2rem; cursor: pointer" class="bx bx-copy" id="copy"></i>
+          </p>
         </div>
-        <div class="btn-box-small">
-          <div class="stack-icons-60">
-            <img src="assets/html5.webp" alt="html5 logo">
-            <img src="assets/css3.webp" alt="css3 logo">
-            <img src="assets/javascript.webp" alt="javascript logo">
+      </div>
+    </section>
+
+    <!--===== SKILLS =====-->
+    <section class="skills section" id="skills">
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-container bd-grid">
+        <div>
+          <h2 class="skills-subtitle">Front-end Skills</h2>
+          <div class="skills-data">
+            <div class="skills-names">
+              <i class="bx bxl-html5 skills-icon"></i>
+              <span class="skills-name">HTML5</span>
+            </div>
           </div>
-          <div class="social-icons-small-40">
-            <a href="" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github app-btn'></i></a>
-            <a href=" " target="_blank" rel="noopener noreferrer"><i class='bx bx-link app-btn'></i></a>
+          <div class="skills-data">
+            <div class="skills-names">
+              <i class="bx bxl-css3 skills-icon"></i>
+              <span class="skills-name">CSS3</span>
+            </div>
+          </div>
+          <div class="skills-data">
+            <div class="skills-names">
+              <i class="bx bxl-javascript skills-icon"></i>
+              <span class="skills-name">JAVASCRIPT</span>
+            </div>
+          </div>
+          <div class="skills-data">
+            <div class="skills-names">
+              <i class="bx bxl-angular skills-icon"></i>
+              <span class="skills-name">Angular</span>
+            </div>
+          </div> <!--
+          <div class="skills-data">
+            <div class="skills-names">
+              <i class="bx bxl-redux skills-icon"></i>
+              <span class="skills-name">Redux</span>
+            </div>
+          </div>
+          <div class="skills-data">
+            <div class="skills-names">
+              <i class="bx bxs-paint skills-icon"></i>
+              <span class="skills-name">Material-UI</span>
+            </div>
+          </div>-->
+          <div class="skills-data">
+            <div class="skills-names">
+              <img class="skills-icon" src="./assets/img/ASPnetMVC.png" alt="" />
+              <span class="skills-name">ASP.NET(MVC)</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2 class="skills-subtitle">Back-end Skills</h2>
+          <div class="skills-data">
+            <div class="skills-names">
+              <img class="skills-icon" src="./assets/img/express.png" alt="" />
+              <span class="skills-name">Express.js</span>
+            </div>
+          </div>
+          <div class="skills-data">
+            <div class="skills-names">
+              <i class="bx bxl-nodejs skills-icon"></i>
+              <span class="skills-name">Node.js</span>
+            </div>
+          </div>
+          <div class="skills-data">
+            <div class="skills-names">
+              <img class="skills-icon" src="./assets/img/SQLServer.png" alt="" />
+              <span class="skills-name">SQL Server</span>
+            </div>
+          </div>
+          <div class="skills-data">
+            <div class="skills-names">
+              <img class="skills-icon" src="./assets/img/mongodb.png" alt="" />
+              <span class="skills-name">MongoDB</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="box">
-        <div class="box-text-img">
-          <h1><span>Poke</span>API</h1>
-          <img class="width-max" src="assets/calculadora_bar.webp" alt="PokeAPI">
-          <p>MiniProyecto de una pokedex en la que tiene información de todos los pokemon y sus estadisticas,tabla de
-            movimientos, sus evoluciones.
-            Realizada completamente en HTML5, CSS3, Typescripty y Angular.</p>
-        </div>
-        <div class="btn-box-small">
-          <div class="stack-icons-60">
-            <img src="assets/html5.webp" alt="html5 logo">
-            <img src="assets/css3.webp" alt="css3 logo">
-            <img src="assets/typescript.webp" alt="typescript logo">
-            <img src="assets/angular.webp" alt="angular logo">
+    </section>
+
+    <!--===== Projects =====-->
+    <section class="projects section" id="projects">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="project-container">
+        <div class="project-img">
+          <img src="assets/img/asp.png" alt="asp.net" />
+          <p class="project-title">PokeApi</p>
+          <p class="project-subtitle">
+          pokedex Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem enim ipsam in velit explicabo animi minus veritatis eius error sit doloremque vitae provident deleniti voluptatibus, excepturi repellat dolore nisi voluptatum. <br />
+            <br />HTML | CSS | TypeScript | Angular
+          </p>
+          <div class="project-btns">
+            <a href="" target="_blank" class="small-btn button">
+              Code<i class="bx bxl-github"></i>
+            </a>
+            <a href=" " target="_blank" class="small-btn button">
+              Live<i class="bx bx-link-external"></i>
+            </a>
           </div>
-          <div class="social-icons-small-40">
-            <a href="" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github app-btn'></i></a>
-            <a href="" target="_blank" rel="noopener noreferrer"><i class='bx bx-link app-btn'></i></a>
+        </div>
+
+        <div class="project-img">
+          <img src="assets/img/react1.png" alt="Quiz" />
+          <p class="project-title">HomeSolution</p>
+          <p class="project-subtitle">
+            Developed Resume Builder, a web app enabling effortless resume creation and customization.
+            Implemented Redux for efficient state management and React Router for seamless navigation,
+            enhancing user experience. Utilized Material UI to create an attractive, intuitive interface, elevating the
+            resume creation and customization process <br />
+
+            <br />HTML | CSS | TS | Angular | .NET
+          </p>
+          <div class="project-btns">
+            <a href="https://github.com/ZulfiqarG/Quiz-App" target="_blank" class="small-btn button">
+              Code<i class="bx bxl-github"></i>
+            </a>
+            <a href="https://quiz-app-sigma-two.vercel.app/" target="_blank" class="small-btn button">
+              Live<i class="bx bx-link-external"></i>
+            </a>
           </div>
         </div>
+
+        <div class="project-img">
+          <img src="assets/img/mongo1.png" alt="movie" />
+          <p class="project-title">Login Basic</p>
+          <p class="project-subtitle">
+          Login bacic with andorid studio <br />
+            <br/>
+            Kotlin | Android Studio 
+          </p>
+          <div class="project-btns">
+            <a href="https://github.com/ZulfiqarG/book-It-Now" target="_blank" class="small-btn button">
+              Code<i class="bx bxl-github"></i>
+            </a>
+            <a href="https://book-it-now-zeta.vercel.app/" target="_blank" class="small-btn button">
+              Live<i class="bx bx-link-external"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="project-img">
+          <img src="assets/img/Ecommerce.png" alt="MiniShopping" />
+          <p class="project-title">Web Site Pets</p>
+          <p class="project-subtitle">
+            A shopping E-commerce website built in react as an individual
+            assignment.
+            <br />
+            <br />
+            HTML | CSS | Javascript 
+          </p>
+          <div class="project-btns">
+            <a href="#" target="_blank" class="small-btn button">
+              Code<i class="bx bxl-github"></i>
+            </a>
+            <a href="#" target="_blank" class="small-btn button">
+              Live<i class="bx bx-link-external"></i>
+            </a>
+          </div>
+        </div>
+        <div class="project-img">
+          <img src="assets/img/Ecommerce.png" alt="MiniShopping" />
+          <p class="project-title">Mini Shopping Web-Site</p>
+          <p class="project-subtitle">
+            A shopping E-commerce website built in react as an individual
+            assignment.
+            <br />
+            <br />
+            HTML | CSS | Javascript 
+          </p>
+          <div class="project-btns">
+            <a href="#" target="_blank" class="small-btn button">
+              Code<i class="bx bxl-github"></i>
+            </a>
+            <a href="#" target="_blank" class="small-btn button">
+              Live<i class="bx bx-link-external"></i>
+            </a>
+          </div>
+        </div>
+
       </div>
-      <div class="box">
-        <div class="box-text-img">
-          <h1><span>Home</span> Solution</h1>
-          <img class="width-max" src="assets/myc_webapp.webp" alt="Homesolution">
-          <p>Proyecto </p>
-        </div>
-        <div class="btn-box-small">
-          <div class="stack-icons-60">
-            <img src="assets/html5.webp" alt="html5 logo">
-            <img src="assets/css3.webp" alt="css3 logo">
-          </div>
-          <div class="social-icons-small-40">
-            <a href="  " target="_blank" rel="noopener noreferrer"><i class='bx bxl-github app-btn'></i></a>
-            <a href="  " target="_blank" rel="noopener noreferrer"><i class='bx bx-link app-btn'></i></a>
-          </div>
-        </div>
-      </div>
+    </section>
+    
+  <!--===== FOOTER + CONTACT=====-->
+  <footer class="footer section" id="contact">
+    <h2 class="section-title">Get in touch</h2>
+    <p class="footer-title">Benito Gallardo</p>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/benito-gallardo-peral/ " target="_blank" class="footer-icon"><i
+          class="bx bxl-linkedin">
+          <br />
+          LinkedIn</i></a>
+      <a href=" " target="_blank" class="footer-icon"><i
+          class="bx bxl-instagram">
+          <br />
+          Instagram</i></a>
+      <a href="mailto:benito.gallardoperal@outlook.com" target="_blank" class="footer-icon"><i
+          class="bx bx-mail-send">
+          <br />
+          E-mail</i></a>
+      <a href="tel:+34722846918" target="_blank" class="footer-icon"><i class="bx bx-phone">
+          <br />
+          Phone</i></a>
     </div>
-  </section>
+    <p>&#169; 2024 copyright all right reserved</p>
+  </footer>
+
+  <!--===== MAIN JS =====-->
+  <script src="assets/js/main.js"></script>
+
+
   
-  <section id="about">
-    <div class="about-box">
-      <div class="about-info">
-        <h1>Sobre <span>mí</span></h1>
-        <p>Desde siempre estuve interesado en la programación, .</p>
-      </div>
-
-      <h2><span>Habi</span>lidades</h2>
-
-      <div class="skills">
-        <ul>
-          <li>
-            <span><i class='bx bxs-chevron-right'></i> HTML</span>
-          </li>
-
-          <li>
-            <span><i class='bx bxs-chevron-right'></i> CSS</span>
-          </li>
-
-          <li>
-            <span><i class='bx bxs-chevron-right'></i>Typescript</span>
-          </li>
-
-          <li>
-            <span><i class='bx bxs-chevron-right'></i> JAVA</span>
-          </li>
-          <li>
-            <span><i class='bx bxs-chevron-right'></i> .NET</span>
-          </li>
-          <li>
-            <span><i class='bx bxs-chevron-right'></i> Wordpress</span>
-          </li>
-        </ul>
-
-        <ul>
-          <li>
-            <span><i class='bx bxs-chevron-right'></i> Angular</span>
-          </li>
-
-          <li>
-            <span><i class='bx bxs-chevron-right'></i> Kotlin</span>
-          </li>
-
-          <li>
-            <span><i class='bx bxs-chevron-right'></i>GitHub</span>
-          </li>
-
-          <li>
-            <span><i class='bx bxs-chevron-right'></i> C#</span>
-          </li>
-          <li>
-            <span><i class='bx bxs-chevron-right'></i> SQL </span>
-          </li>
-          <li>
-            <span><i class='bx bxs-chevron-right'></i>API REST</span>
-          </li>
-        </ul>
-        <img src="assets/skills.webp" alt="">
-      </div>
-
-
-
-      <h2><span>Educ</span>ación</h2>
-
-      <div class="education">
-        <div class="education-content">
-          <p><strong><span>Título:</span></strong> Grado Superior en Desarrollo de Aplicaciones Web</p>
-          <p><strong><span>Instituto:</span></strong> Centro Oficial FP DIgital & Tech</p>
-          <p><strong><span>Año:</span></strong> Cursando</p>
-        </div>
-      </div>
-
-      <div class="education">
-        <div class="education-content">
-          <p><strong><span>Título:</span></strong> Grado Superior en Desarrollo de Aplicaciones Multiplataforma</p>
-          <p><strong><span>Instituto:</span></strong> CPIFP ALAN TURING, MALAGA</p>
-          <p><strong><span>Año:</span></strong> 2022 - 2024</p>
-        </div>
-      </div>
-
-      <div class="education">
-        <div class="education-content">
-          <p><strong><span>Título:</span></strong> Grado Medio de SISTEMAS Y REDES DE MICROINFORMATICO</p>
-          <p><strong><span>Instituto:</span></strong> IES CÁNOVAS DEL CASTILLO</p>
-          <p><strong><span>Año:</span></strong> 2020 - 2022</p>
-        </div>
-      </div>
-      <div class="education">
-        <div class="education-content">
-          <p><strong><span>Título:</span></strong>Formación Profesional Básica de ELECTRICIDAD Y ELECTRÓNICA</p>
-          <p><strong><span>Instituto:</span></strong> IES SALESIANOS</p>
-          <p><strong><span>Año:</span></strong> 2018 - 2020</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- experiencia -->
-
-  <section id="experience">
-    <h1 class="header"><span>Expe</span>riencia</h1>
-    <div class="timeline-container">
-      <div class="timeline-item">
-        <div class="timeline-icon">
-          <i class="fas fa-check"></i>
-        </div>
-        <div class="timeline-content">
-          <h1><span>Fant</span>ozzi</h1>
-          <p>Fantozzil Via Raffaele, Via R. Iorio, Isernia IS, Italia</p>
-          <p><b>Marzo 2022 - Junio 2022</b></p>
-          <p>Trabajé en el cambio de productos e
-            imágenes en el sitio web de la empresa (Wordpress, Photoshop).
-            También trabajé con el mantenimiento de impresoras del sitio web de la empresa.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-icon">
-          <i class="fas fa-heart"></i>
-        </div>
-        <div class="timeline-content">
-          <h1><span>Hale</span>teo</h1>
-          <p>Haleteo - Av. España, A4, 29680 Estepona, Málaga</p>
-          <p><b>Marzo 2024 - Junio 2024</b></p>
-          <p>Trabajé con diseño móvil con Android Studio (Kotlin), diseño web (HTML, CSS) y Web
-            scrapping (C# y un poco de python).</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- contact -->
-  <section id="contact">
-
-    <h1 class="header"><span>Cont</span>acto</h1>
-
-    <div class="contact-box">
-      <h1>Contacta conmigo</h1>
-      <h2>Si estás interesado en mi forma de trabajar, no dudes en pulsar el botón de contacto para mandarme un email y
-        lo responderé en la mayor brevedad posible.</h2>
-      <div class="btn"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=benito11gallardo@gmail.com"
-          target="_blank" rel="noopener noreferrer">Contactar</a></div>
-    </div>
-  </section>
-
-
-<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, esse non pariatur iure quas totam debitis perferendis animi neque reiciendis officia ducimus ipsum, facilis et adipisci vitae exercitationem, commodi vero.</div>
-
-
-  <script src="script.js"></script>
 </body>
 
 </html>
