@@ -33,6 +33,25 @@ window.addEventListener( "scroll", () => {
   } )
 } )
 
+
+const bubbleCount = 50; // Aumentar el número de burbujas
+const bubblesContainer = document.querySelector('.bubbles');
+
+for (let i = 0; i < bubbleCount; i++) {
+  const bubble = document.createElement('div');
+  const size = Math.random() * 60 + 20; // Tamaño aleatorio entre 20 y 80px
+  const left = Math.random() * 100; // Posición horizontal aleatoria
+  const animationDuration = Math.random() * 5 + 5; // Duración de la animación entre 5 y 10 segundos
+
+  bubble.classList.add('bubble');
+  bubble.style.width = `${size}px`;
+  bubble.style.height = `${size}px`;
+  bubble.style.left = `${left}vw`;
+  bubble.style.animationDuration = `${animationDuration}s`;
+
+  bubblesContainer.appendChild(bubble);
+}
+
 /*===== PRELOADER =====*/
 function hidePreloader() {
 
@@ -88,6 +107,8 @@ copy.addEventListener( "click", () => {
     copy.innerHTML = null;
   }, 1000 );
 } );
+
+
 
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal( {
