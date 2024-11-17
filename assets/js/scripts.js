@@ -34,6 +34,33 @@ window.addEventListener( "scroll", () => {
 } )
 
 
+
+
+
+// Función para alternar entre modo claro y oscuro
+const themeToggle = document.getElementById('theme-toggle');
+
+themeToggle.addEventListener('click', () => {
+   
+    if (document.body.classList.contains('dark-mode')) {
+  
+        document.body.classList.remove('dark-mode');
+        document.body.style.backgroundColor = 'white'; 
+        document.body.style.color = '#333'; 
+        themeToggle.innerHTML = '<i class="bx bx-moon"></i> Modo Oscuro'; 
+    } else {
+      
+        document.body.classList.add('dark-mode');
+        document.body.style.backgroundColor = '#121212'; 
+        document.body.style.color = '#e0e0e0'; 
+        themeToggle.innerHTML = '<i class="bx bx-sun"></i> Modo Claro'; 
+    }
+});
+
+
+
+
+
 //   /*Remove menu mobile*/
 const navMenu = document.getElementById( "nav-menu" );
 

@@ -75,6 +75,7 @@ ul {
   list-style: none;
 }
 a {
+  color: var(--first-color); 
   text-decoration: none;
 }
 img {
@@ -119,13 +120,9 @@ img {
 
 
 
-::-webkit-scrollbar {
-  width: 15px;
-  background-color: var(--background);
-}
 
 
-/********* barra naavegador *****************/
+/*===== barra naavegador =====*/
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     to bottom,
@@ -133,6 +130,10 @@ img {
    var(--second-color)
   
   );
+}
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: var(--background);
 }
 
 
@@ -276,6 +277,69 @@ img {
   color: var(--first-color);
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.15);
 }
+
+/*===== ESTILOS PARA EL BOTÓN DE MODO CLARO/OSCURO =====*/
+.theme-toggle {
+  background-color: var(--first-color); /* Color de fondo */
+  color: #fff; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+.theme-toggle:hover {
+  background-color: #fff; /* Color de fondo al pasar el mouse */
+  color: var(--first-color); /* Color del texto al pasar el mouse */
+}
+
+.theme-toggle:active {
+  transform: scale(0.95); /* Efecto de pulsación */
+}
+
+/* Estilo para el ícono dentro del botón */
+.theme-toggle i {
+  margin-right: 0.5rem; /* Espacio entre el ícono y el texto */
+}
+
+
+.l-header {
+  background-color: #ffffff; /* Color de fondo de la cabecera en modo claro */
+  color: #333; /* Color de texto de la cabecera en modo claro */
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+  background-color: #121212; /* Color de fondo oscuro */
+  color: #e0e0e0; /* Color de texto claro */
+}
+
+body.dark-mode .l-header {
+  background-color: #1e1e1e; /* Color de fondo de la cabecera en modo oscuro */
+  color: #e0e0e0; /* Color de texto de la cabecera en modo oscuro */
+}
+
+body.dark-mode a {
+color: white;
+  text-decoration: none;
+}
+
+/* Estilos para los elementos de la cabecera */
+.nav-link {
+  color: inherit; /* Hereda el color del texto de la cabecera */
+}
+
+body.dark-mode .nav-link {
+  color: inherit; /* Hereda el color del texto de la cabecera en modo oscuro */
+}
+
+.nav-toggle {
+  color: inherit; /* Hereda el color del texto de la cabecera */
+
+}
+
 
 /* ===== ABOUT =====*/
 section.about {
