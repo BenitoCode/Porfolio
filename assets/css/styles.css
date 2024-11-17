@@ -85,6 +85,98 @@ img {
   
 }
 
+/*===== PRELOADER ===== */
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.loader {
+  width: 70px;
+  height: 70px;
+  position: relative;
+}
+
+.loader:before {
+  content: "";
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 6px solid #007bff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.loader:after {
+  content: "";
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  border-top-color: #007bff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: spin 2s linear infinite;
+}
+
+.loader-text {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #007bff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.content {
+  display: none;
+}
+
+.loaded .loader-container {
+  display: none;
+}
+
+.loaded .content {
+  display: block;
+}
+
 /*===== CLASS CSS ===== */
 .section-title {
   position: relative;
@@ -118,11 +210,8 @@ img {
     color: transparent;
 }
 
+/*===== SCROLLBAR =====*/
 
-
-
-
-/*===== barra naavegador =====*/
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     to bottom,
@@ -130,14 +219,12 @@ img {
    var(--second-color)
   
   );
+  border-radius: 10px;
 }
 ::-webkit-scrollbar {
   width: 15px;
   background-color: var(--background);
 }
-
-
-
 
 /*===== LAYOUT =====*/
 .bd-grid {
@@ -209,7 +296,6 @@ img {
   cursor: pointer;
 }
 
-/*Active menu*/
 .active::after {
   position: absolute;
   content: "";
@@ -278,47 +364,46 @@ img {
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.15);
 }
 
-/*===== ESTILOS PARA EL BOTÓN DE MODO CLARO/OSCURO =====*/
+/*===== MODE DARK/WHITE =====*/
 .theme-toggle {
-  background-color: var(--first-color); /* Color de fondo */
-  color: #fff; /* Color del texto */
-  border: none; /* Sin borde */
-  border-radius: 0.5rem; /* Bordes redondeados */
-  padding: 0.5rem 1rem; /* Espaciado interno */
-  font-size: 1rem; /* Tamaño de fuente */
-  cursor: pointer; /* Cambia el cursor al pasar el mouse */
-  transition: background-color 0.3s, color 0.3s; /* Transición suave */
+  background-color: var(--first-color); 
+  color: #fff; 
+  border: none; 
+  border-radius: 0.5rem; 
+  padding: 0.5rem 1rem; 
+  font-size: 1rem; 
+  cursor: pointer; 
+  transition: background-color 0.3s, color 0.3s; 
 }
 
 .theme-toggle:hover {
-  background-color: #fff; /* Color de fondo al pasar el mouse */
-  color: var(--first-color); /* Color del texto al pasar el mouse */
+  background-color: #fff; 
+  color: var(--first-color);
 }
 
 .theme-toggle:active {
-  transform: scale(0.95); /* Efecto de pulsación */
+  transform: scale(0.95); 
 }
 
-/* Estilo para el ícono dentro del botón */
+
 .theme-toggle i {
-  margin-right: 0.5rem; /* Espacio entre el ícono y el texto */
+  margin-right: 0.5rem; 
 }
 
 
 .l-header {
-  background-color: #ffffff; /* Color de fondo de la cabecera en modo claro */
-  color: #333; /* Color de texto de la cabecera en modo claro */
+  background-color: #ffffff; 
+  color: #333; 
 }
 
-/* Estilos para el modo oscuro */
 body.dark-mode {
-  background-color: #121212; /* Color de fondo oscuro */
-  color: #e0e0e0; /* Color de texto claro */
+  background-color: #121212; 
+  color: #e0e0e0; 
 }
 
 body.dark-mode .l-header {
-  background-color: #1e1e1e; /* Color de fondo de la cabecera en modo oscuro */
-  color: #e0e0e0; /* Color de texto de la cabecera en modo oscuro */
+  background-color: #1e1e1e; 
+  color: #e0e0e0; 
 }
 
 body.dark-mode a {
@@ -326,20 +411,24 @@ color: white;
   text-decoration: none;
 }
 
-/* Estilos para los elementos de la cabecera */
 .nav-link {
-  color: inherit; /* Hereda el color del texto de la cabecera */
+  color: inherit; 
 }
 
 body.dark-mode .nav-link {
-  color: inherit; /* Hereda el color del texto de la cabecera en modo oscuro */
+  color: inherit; 
 }
 
 .nav-toggle {
-  color: inherit; /* Hereda el color del texto de la cabecera */
+  color: inherit; 
 
 }
 
+@media screen and (max-width: 970px) {
+  .theme-toggle {
+    display: none;
+  }
+}
 
 /* ===== ABOUT =====*/
 section.about {

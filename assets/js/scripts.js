@@ -33,11 +33,23 @@ window.addEventListener( "scroll", () => {
   } )
 } )
 
+/*===== PRELOADER =====*/
+function hidePreloader() {
+
+  const preloader = document.querySelector('.loader-container');
+
+  preloader.style.opacity = '0';
+
+  setTimeout(() => {
+      preloader.style.display = 'none';
+  }, 500);
+}
+window.addEventListener('load', () => {
+  setTimeout(hidePreloader, 1000);
+});
 
 
-
-
-// Función para alternar entre modo claro y oscuro
+/*===== DARK AND WHITE =====*/
 const themeToggle = document.getElementById('theme-toggle');
 
 themeToggle.addEventListener('click', () => {
