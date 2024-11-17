@@ -78,13 +78,13 @@ themeToggle.addEventListener('click', () => {
         document.body.classList.remove('dark-mode');
         document.body.style.backgroundColor = 'white'; 
         document.body.style.color = '#333'; 
-        themeToggle.innerHTML = '<i class="bx bx-moon"></i> Modo Oscuro'; 
+        themeToggle.innerHTML = '<i class="bx bx-moon"></i> '; 
     } else {
       
         document.body.classList.add('dark-mode');
         document.body.style.backgroundColor = '#121212'; 
         document.body.style.color = '#e0e0e0'; 
-        themeToggle.innerHTML = '<i class="bx bx-sun"></i> Modo Claro'; 
+        themeToggle.innerHTML = '<i class="bx bx-sun"></i>'; 
     }
 });
 
