@@ -1,144 +1,90 @@
-/*===== MENU SHOW =====*/
-const showMenu = ( toggleId, navId ) => {
-  const toggle = document.getElementById( toggleId ),
-    nav = document.getElementById( navId );
+/*===== MENÚ MÓVIL =====*/
+const navToggle = document.getElementById("nav-toggle");
+const navMenu = document.getElementById("nav-menu");
+const navLinks = document.querySelectorAll(".nav-link");
 
-  if ( toggle && nav ) {
-    toggle.addEventListener( "click", () => {
-      nav.classList.toggle( "show" );
-    } );
-  }
+const setMenu = (open) => {
+  navMenu.classList.toggle("show", open);
+  navToggle.setAttribute("aria-expanded", String(open));
+  navToggle.innerHTML = open ? '<i class="bx bx-x"></i>' : '<i class="bx bx-menu"></i>';
 };
-showMenu( "nav-toggle", "nav-menu" );
+navToggle.addEventListener("click", () => setMenu(!navMenu.classList.contains("show")));
+navLinks.forEach((link) => link.addEventListener("click", () => setMenu(false)));
 
-/*===== ACTIVE AND REMOVE MENU =====*/
-const navLinks = document.querySelectorAll( ".nav-link" );
-const sections = document.querySelectorAll( ".section" );
+/*===== HEADER CON BORDE AL HACER SCROLL =====*/
+const header = document.getElementById("header");
+const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 10);
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
 
-window.addEventListener( "scroll", () => {
-  let current = '';
-  sections.forEach( section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if ( scrollY >= sectionTop - 390 ) {
-      current = section.getAttribute( 'id' );
-    }
-  } )
+/*===== ENLACE ACTIVO SEGÚN LA SECCIÓN =====*/
+const sections = ["inicio", "proyectos", "sobre-mi", "contacto"]
+  .map((id) => document.getElementById(id))
+  .filter(Boolean);
 
-  navLinks.forEach( link => {
-    link.classList.remove( 'active' );
-    if ( link.classList.contains( current ) ) {
-      link.classList.add( 'active' );
-    }
-  } )
-} )
+const activeObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach((link) =>
+        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`)
+      );
+    });
+  },
+  { rootMargin: "-45% 0px -50% 0px" }
+);
+sections.forEach((s) => activeObserver.observe(s));
 
+/*===== MODO OSCURO / CLARO =====*/
+const root = document.documentElement;
+const themeToggle = document.getElementById("theme-toggle");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-const bubbleCount = 50; // Aumentar el número de burbujas
-const bubblesContainer = document.querySelector('.bubbles');
+const currentTheme = () => root.getAttribute("data-theme") || (prefersDark.matches ? "dark" : "light");
+const paintIcon = () => {
+  themeToggle.innerHTML = currentTheme() === "dark" ? '<i class="bx bx-sun"></i>' : '<i class="bx bx-moon"></i>';
+};
 
-for (let i = 0; i < bubbleCount; i++) {
-  const bubble = document.createElement('div');
-  const size = Math.random() * 60 + 20; // Tamaño aleatorio entre 20 y 80px
-  const left = Math.random() * 100; // Posición horizontal aleatoria
-  const animationDuration = Math.random() * 5 + 5; // Duración de la animación entre 5 y 10 segundos
+themeToggle.addEventListener("click", () => {
+  const next = currentTheme() === "dark" ? "light" : "dark";
+  root.setAttribute("data-theme", next);
+  try { localStorage.setItem("theme", next); } catch (e) { }
+  paintIcon();
+});
+prefersDark.addEventListener("change", paintIcon);
+paintIcon();
 
-  bubble.classList.add('bubble');
-  bubble.style.width = `${size}px`;
-  bubble.style.height = `${size}px`;
-  bubble.style.left = `${left}vw`;
-  bubble.style.animationDuration = `${animationDuration}s`;
+/*===== COPIAR EMAIL =====*/
+const copyBtn = document.getElementById("copy");
+const toast = document.getElementById("toast");
 
-  bubblesContainer.appendChild(bubble);
-}
-
-/*===== PRELOADER =====*/
-function hidePreloader() {
-
-  const preloader = document.querySelector('.loader-container');
-
-  preloader.style.opacity = '0';
-
-  setTimeout(() => {
-      preloader.style.display = 'none';
-  }, 500);
-}
-window.addEventListener('load', () => {
-  setTimeout(hidePreloader, 1000);
+copyBtn.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText("benito.gallardoperal@outlook.com");
+    toast.textContent = "Email copiado";
+  } catch (e) {
+    toast.textContent = "No se pudo copiar";
+  }
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 1800);
 });
 
-
-/*===== DARK AND WHITE =====*/
-const themeToggle = document.getElementById('theme-toggle');
-
-themeToggle.addEventListener('click', () => {
-   
-    if (document.body.classList.contains('dark-mode')) {
-  
-        document.body.classList.remove('dark-mode');
-        document.body.style.backgroundColor = 'white'; 
-        document.body.style.color = '#333'; 
-        themeToggle.innerHTML ='<i class="bx bx-moon"></i>'; 
-    } else {
-      
-        document.body.classList.add('dark-mode');
-        document.body.style.backgroundColor = '#121212'; 
-        document.body.style.color = '#e0e0e0'; 
-        themeToggle.innerHTML ='<i class="bx bx-sun"></i>'; 
-    }
+/*===== ANIMACIÓN AL APARECER =====*/
+const revealObserver = new IntersectionObserver(
+  (entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        obs.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
+document.querySelectorAll(".reveal").forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 4) * 80}ms`;
+  revealObserver.observe(el);
 });
 
-
-
-
-
-//   /*Remove menu mobile*/
-const navMenu = document.getElementById( "nav-menu" );
-
-// }
-navLinks.forEach( ( n ) => n.addEventListener( "click", () => { navMenu.classList.remove( "show" ) } ) );
-
-/*===== COPY Email =====*/
-const copy = document.getElementById( "copy" );
-copy.addEventListener( "click", () => {
-  navigator.clipboard.writeText( "benito.gallardoperal@outlook.com" );
-  copy.innerHTML = "copied";
-  setTimeout( () => {
-    copy.innerHTML = null;
-  }, 1000 );
-} );
-
-
-
-/*===== SCROLL REVEAL ANIMATION =====*/
-const sr = ScrollReveal( {
-  origin: "top",
-  distance: "80px",
-  duration: 800,
-  reset: true,
-} );
-
-/*SCROLL HOME*/
-sr.reveal( ".home-title", {} );
-sr.reveal( ".button", { delay: 200 } );
-sr.reveal( ".home-img", { delay: 400 } );
-sr.reveal( ".home-social-icon", { interval: 200 } );
-
-/*SCROLL ABOUT*/
-sr.reveal( ".about-img", {} );
-sr.reveal( ".about-subtitle", { delay: 400 } );
-sr.reveal( ".about-text", { delay: 400 } );
-
-/*SCROLL SKILLS*/
-sr.reveal( ".skills-subtitle", {} );
-sr.reveal( ".skills-text", {} );
-sr.reveal( ".skills-data", { interval: 100 } );
-
-// sr.reveal(".skills-img", { delay: 600 });
-
-/*SCROLL projects*/
-sr.reveal( ".project-img", { interval: 200 } );
-
-
-
-  
+/*===== AÑO DEL FOOTER =====*/
+document.getElementById("year").textContent = new Date().getFullYear();
