@@ -14,6 +14,7 @@
     entregado: "Web publicada",
     desarrollo: "En desarrollo",
     exploracion: "En exploración",
+    proximamente: "Próximamente",
   };
   const status = (key) => `<span class="status status--${esc(key)}">${esc(STATUS[key] || key)}</span>`;
 
@@ -57,13 +58,9 @@
       </div>
     </div>`;
 
-  /* 3. Negocios */
-  R.businesses = () =>
-    S.businesses
-      .filter((b) => b.visible !== false)
-      .map(
-        (b) => `
-      <article class="business reveal" id="${esc(b.id)}" aria-labelledby="${esc(b.id)}-name" style="--brand:${esc(b.color || "#2F5BFF")};--brand-ink:${esc(b.colorInk || "#ffffff")}">
+  /* 3. Negocios y trabajos para clientes (misma tarjeta) */
+  const card = (b, extra = "") => `
+      <article class="business${extra} reveal" id="${esc(b.id)}" aria-labelledby="${esc(b.id)}-name" style="--brand:${esc(b.color || "#2F5BFF")};--brand-ink:${esc(b.colorInk || "#ffffff")}">
         <div class="business-head">
           <h3 class="business-name" id="${esc(b.id)}-name">${esc(b.name)}</h3>
           <div class="business-meta">
@@ -79,9 +76,14 @@
             ${b.url ? `<a class="text-link" href="${esc(b.url)}"${linkAttrs(b.url)}>${esc(b.urlLabel || "Visitar web")}</a>` : ""}
           </div>
         </div>
-      </article>`
-      )
-      .join("");
+      </article>`;
+
+  R.businesses = () => S.businesses.filter((b) => b.visible !== false).map((b) => card(b)).join("");
+
+  R.clients = () => {
+    const list = (S.clientWork || []).filter((b) => b.visible !== false);
+    return list.length ? list.map((b) => card(b, " business--client")).join("") : null;
+  };
 
   /* 4. Sobre mí */
   R.story = () => `

@@ -607,3 +607,7 @@ img { display: block; max-width: 100%; height: auto; }
   .hero-photo { margin-right: 7%; }
   .marquee { padding: 14px 0; }
 }
+
+/* Próximamente y trabajos para clientes */
+.status--proximamente { --dot: var(--blue); }
+.business--client .business-name { font-size: clamp(2.5rem, 6.5vw, 5.5rem); }

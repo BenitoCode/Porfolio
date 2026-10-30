@@ -37,7 +37,7 @@ window.SITE = {
   },
 
   /* Franja animada bajo la portada */
-  marquee: ["Emprendedor", "Desarrollador web", "Málaga", "Benitek", "JT Rent", "Construyendo en público"],
+  marquee: ["Emprendedor", "Desarrollador web", "Málaga", "Benitek", "SIFT", "Construyendo en público"],
 
   /* 1. Presentación personal */
   intro: {
@@ -69,8 +69,8 @@ window.SITE = {
     ],
   },
 
-  /* 3. Negocios y proyectos.
-     status: "activo" | "desarrollo" | "exploracion" | "entregado" */
+  /* 3. Mis negocios (solo los que son míos).
+     status: "activo" | "desarrollo" | "proximamente" | "exploracion" */
   businesses: [
     {
       id: "benitek",
@@ -86,31 +86,35 @@ window.SITE = {
       image: { src: "", alt: "" },
     },
     {
+      id: "sift",
+      visible: true, // Pon false para ocultarlo.
+      name: "SIFT",
+      kind: "Mi próximo negocio",
+      color: "#14A37F",
+      colorInk: "#ffffff",
+      status: "proximamente",
+      summary: "Mi próximo negocio. Lo estoy preparando y lo presentaré aquí cuando esté listo.",
+      role: "Fundador",
+      url: "",
+      image: { src: "", alt: "" },
+    },
+  ],
+
+  /* Trabajos para clientes (no son negocios míos). */
+  clientWork: [
+    {
       id: "jt-rent",
       visible: true,
       name: "JT Rent",
-      kind: "Proyecto para cliente",
+      kind: "Web para cliente",
       color: "#FFC83D",
       colorInk: "#0A1A3F",
       status: "entregado",
-      summary: "Web para una empresa real de alquiler de motos y scooters en Málaga. Los clientes consultan modelos, precio y disponibilidad y reservan por WhatsApp.",
+      summary: "Web para JT Rent, una empresa de alquiler de motos y scooters en Málaga. Sus clientes consultan modelos, precio y disponibilidad y reservan por WhatsApp.",
       role: "Diseño y desarrollo web",
       url: "https://jt-rent.com/",
       urlLabel: "Ver jt-rent.com",
       image: { src: "", alt: "Página de inicio de jt-rent.com" },
-    },
-    {
-      id: "sift",
-      visible: false, // Oculto por defecto. Cambia a true para mostrarlo.
-      name: "SIFT",
-      kind: "Idea de negocio",
-      color: "#14A37F",
-      colorInk: "#ffffff",
-      status: "exploracion",
-      summary: "Una idea empresarial que estoy explorando. Todavía no es un producto.",
-      role: "Fundador",
-      url: "",
-      image: { src: "", alt: "" },
     },
   ],
 
@@ -142,7 +146,7 @@ window.SITE = {
       {
         period: "Hoy",
         title: "Construir lo mío",
-        text: "Estudio el Grado Superior de Desarrollo de Aplicaciones Web en Digitech Málaga, he hecho la web de JT Rent y estoy montando Benitek, mi propio negocio.",
+        text: "Estudio el Grado Superior de Desarrollo de Aplicaciones Web en Digitech Málaga, he hecho la web de JT Rent para un cliente y estoy montando mis propios negocios: Benitek y, muy pronto, SIFT.",
       },
     ],
   },
@@ -171,6 +175,7 @@ window.SITE = {
     updated: "Octubre de 2026",
     items: [
       { title: "Benitek", text: "Definiendo marca, servicios y precios.", status: "desarrollo" },
+      { title: "SIFT", text: "Preparando su lanzamiento.", status: "proximamente" },
       { title: "Grado en Desarrollo de Aplicaciones Web", text: "Cursando en Digitech Málaga.", status: "activo" },
       { title: "Canal de YouTube", text: "Preparando los primeros vídeos.", status: "desarrollo" },
     ],
