@@ -21,8 +21,8 @@
   const linkAttrs = (url) => (isExternal(url) ? ' target="_blank" rel="noopener"' : "");
 
   /* Foto con espacio reservado si aún no existe */
-  const photo = ({ src = "", alt = "" } = {}, { ratio = "4/5", mark = "B", wide = false, eager = false } = {}) => {
-    const style = `style="--ratio:${esc(ratio)}"`;
+  const photo = ({ src = "", alt = "" } = {}, { ratio = "4/5", mark = "B", wide = false, eager = false, color = "" } = {}) => {
+    const style = `style="--ratio:${esc(ratio)}${color ? `;--ph:${esc(color)}` : ""}"`;
     if (src) {
       return `<div class="photo" ${style}><img src="${esc(src)}" alt="${esc(alt)}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></div>`;
     }
@@ -30,6 +30,12 @@
   };
 
   const R = {};
+
+  /* Franja animada */
+  R.marquee = () => {
+    const items = (S.marquee || []).map((m) => `<span>${esc(m)}</span><i></i>`).join("");
+    return items ? `<div class="marquee-track">${items}${items}</div>` : null;
+  };
 
   /* 1. Presentación */
   R.intro = () => `
@@ -57,7 +63,7 @@
       .filter((b) => b.visible !== false)
       .map(
         (b) => `
-      <article class="business reveal" id="${esc(b.id)}" aria-labelledby="${esc(b.id)}-name">
+      <article class="business reveal" id="${esc(b.id)}" aria-labelledby="${esc(b.id)}-name" style="--brand:${esc(b.color || "#2F5BFF")};--brand-ink:${esc(b.colorInk || "#ffffff")}">
         <div class="business-head">
           <h3 class="business-name" id="${esc(b.id)}-name">${esc(b.name)}</h3>
           <div class="business-meta">
@@ -65,7 +71,7 @@
             <span class="business-kind">${esc(b.kind)}</span>
           </div>
         </div>
-        ${photo(b.image, { ratio: "21/8", mark: b.name, wide: true })}
+        ${photo(b.image, { ratio: "21/8", mark: b.name, wide: true, color: b.color })}
         <div class="business-body">
           <p class="business-summary">${esc(b.summary)}</p>
           <div class="business-side">
@@ -108,7 +114,7 @@
         <li class="timeline-item${t.current ? " is-current" : ""}">
           <span class="timeline-years">${esc(t.years)}</span>
           <div class="timeline-what"><h3>${esc(t.title)}</h3><p>${esc(t.place)}</p></div>
-          <span class="timeline-type">${esc(t.type)}</span>
+          <span class="timeline-type type--${t.type === "Experiencia" ? "work" : "study"}">${esc(t.type)}</span>
         </li>`
         )
         .join("")}
@@ -159,7 +165,7 @@
         </a>`
           )
           .join("")
-      : [1, 2, 3].map(() => `<div class="video video--soon" aria-hidden="true"><div class="video-frame"><span>Próximo vídeo</span></div></div>`).join("");
+      : [1, 2, 3].map(() => `<div class="video video--soon" aria-hidden="true"><div class="video-frame"><span class="play"></span><span>Próximo vídeo</span></div></div>`).join("");
     return `
       <div class="content-head">
         <h2 class="h2" id="contenido-title">${has ? "Vídeos" : "Contenido en camino"}</h2>
@@ -223,7 +229,7 @@
     if (!fn) return;
     const html = fn();
     const section = el.closest("section");
-    if (html === null) { if (section) section.hidden = true; return; }
+    if (html === null) { if (section) section.hidden = true; else el.hidden = true; return; }
     if (section && section.hidden) section.hidden = false;
     el.innerHTML = html;
   });

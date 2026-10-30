@@ -448,3 +448,162 @@ img { display: block; max-width: 100%; height: auto; }
   .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .article { grid-template-columns: 1fr; gap: 4px; }
 }
+
+/* =============================================================
+   CAPA DE COLOR
+   Azul mar, azul noche y amarillo sol (Málaga).
+   Para cambiar la paleta basta con tocar estas variables.
+   ============================================================= */
+:root {
+  --blue: #2f5bff;
+  --blue-dark: #1e43d8;
+  --navy: #0a1a3f;
+  --sun: #ffc83d;
+  --sky: #eaf0ff;
+  --sand: #fff4d6;
+  --radius: 16px;
+}
+
+/* Titulares en azul noche */
+.h2, .h3, .hero-title, .intro-statement, .business-name, .wordmark,
+.timeline-what h3, .now-item h3, .learning li a { color: var(--navy); }
+
+/* Cabecera */
+.wordmark::after { content: ""; display: inline-block; width: 8px; height: 8px; margin-left: 4px; border-radius: 50%; background: var(--blue); }
+.nav-contact a { background: var(--blue); }
+.nav-contact a:hover { background: var(--blue-dark); }
+
+/* Botones */
+.btn-solid { background: var(--blue); border-color: var(--blue); }
+.btn-solid:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
+.btn-line { color: var(--navy); border-color: var(--navy); }
+.btn-line:hover { background: var(--navy); color: #fff; }
+.text-link { color: var(--blue); }
+
+/* Portada */
+.hero { position: relative; }
+.hero-tag {
+  display: inline-block; background: var(--sun); color: var(--navy);
+  padding: 9px 16px; border-radius: 999px; letter-spacing: .14em;
+}
+.hero-title .line:nth-child(2) { color: var(--blue); }
+.hero-photo { position: relative; }
+.hero-photo::before {
+  content: ""; position: absolute; z-index: 0;
+  width: 46%; aspect-ratio: 1; top: -7%; right: -7%;
+  border-radius: 50%; background: var(--sun);
+}
+.hero-photo::after {
+  content: ""; position: absolute; z-index: 0;
+  width: 28%; aspect-ratio: 1; bottom: -5%; left: -6%;
+  border-radius: 50%; border: 3px solid var(--blue);
+}
+.hero-photo .photo { position: relative; z-index: 1; }
+
+/* Espacios reservados con color */
+.photo--empty {
+  background:
+    radial-gradient(90% 70% at 85% 10%, rgba(255, 255, 255, .22) 0%, transparent 60%),
+    var(--ph, var(--blue));
+}
+.photo--empty .photo-mark { color: rgba(255, 255, 255, .2); }
+.business .photo--empty .photo-mark { color: color-mix(in srgb, var(--brand-ink) 22%, transparent); }
+
+/* Franja animada */
+.marquee { background: var(--navy); color: #fff; overflow: hidden; padding: 20px 0; }
+.marquee-track { display: flex; align-items: center; gap: 36px; width: max-content; animation: marquee 38s linear infinite; }
+.marquee-track span { font-size: clamp(1.25rem, 2.4vw, 2rem); font-weight: 800; letter-spacing: -.02em; white-space: nowrap; }
+.marquee-track i { width: 14px; height: 14px; border-radius: 50%; background: var(--sun); flex: none; }
+.marquee-track i:nth-of-type(3n) { background: var(--blue); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* 1. Presentación */
+.facts { border-top: 0; gap: 12px; }
+.facts div { background: var(--sky); border-radius: var(--radius); padding: 22px 24px; }
+.facts dt { color: var(--blue); font-weight: 600; }
+.facts dd { font-size: 1.25rem; color: var(--navy); }
+.facts div:nth-child(2) { background: var(--sand); }
+.facts div:nth-child(2) dt { color: #8a6100; }
+
+/* 2. Visión (bloque azul noche) */
+.block-navy { background: var(--navy); color: #c9d3ee; }
+.block-navy .h2, .block-navy .h3 { color: #fff; }
+.block-navy .principle { border-top-color: rgba(255, 255, 255, .14); }
+.block-navy .principle:first-child { border-top: 2px solid var(--sun); }
+.block-navy .principle p { color: #c9d3ee; }
+.block-navy .h3::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-right: 14px; border-radius: 50%; background: var(--sun); vertical-align: .12em; }
+.block-navy .principle:nth-child(2) .h3::before { background: var(--blue); }
+.block-navy .principle:nth-child(3) .h3::before { background: #fff; }
+.block-navy :focus-visible { outline-color: #fff; }
+
+/* 3. Negocios */
+.business-name { position: relative; }
+.business-name::after { content: ""; display: block; width: 72px; height: 6px; margin-top: 18px; border-radius: 3px; background: var(--brand); }
+.business-kind { color: var(--navy); font-weight: 600; }
+.business-side dt { color: var(--blue); }
+
+/* 4. Sobre mí (bloque cielo) */
+.block-sky { background: var(--sky); }
+.block-sky .chapter { border-top-color: rgba(10, 26, 63, .12); }
+.chapter-period { display: inline-block; background: var(--blue); color: #fff; font-weight: 600; padding: 4px 12px; border-radius: 999px; }
+.chapter:last-child .chapter-period { background: var(--sun); color: var(--navy); }
+
+/* 5. Trayectoria */
+.timeline { border-top: 2px solid var(--navy); }
+.timeline-type { padding: 4px 12px; border-radius: 999px; font-weight: 600; }
+.type--study { background: var(--sky); color: var(--blue-dark); }
+.type--work { background: var(--sand); color: #7a5300; }
+.timeline-item.is-current .timeline-years { color: var(--blue); }
+.learning li a:hover { color: var(--blue); }
+
+/* 6. Ahora */
+.now-list { border-top: 0; display: flex; flex-direction: column; gap: 12px; }
+.now-item { background: var(--sky); border-radius: var(--radius); border-bottom: 0; padding: 20px 22px; }
+.now-item:nth-child(2) { background: var(--sand); }
+
+/* 7. Contenido (bloque sol) */
+.block-sun { background: var(--sun); color: var(--navy); }
+.block-sun .content-head-side p { color: var(--navy); }
+.block-sun .btn[aria-disabled="true"] { opacity: .55; }
+.block-sun .video--soon .video-frame {
+  background: rgba(255, 255, 255, .5); border: 2px dashed rgba(10, 26, 63, .25);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+}
+.block-sun .video--soon .video-frame span:last-child { color: var(--navy); font-weight: 600; }
+.play { position: relative; width: 56px; height: 56px; border-radius: 50%; background: var(--navy); }
+.play::before {
+  content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-35%, -50%);
+  border-style: solid; border-width: 10px 0 10px 16px; border-color: transparent transparent transparent #fff;
+}
+
+/* 8. Contacto (bloque azul) */
+.block-blue { background: var(--blue); color: #e3e9ff; }
+.block-blue .contact-title, .block-blue .contact-mail { color: #fff; }
+.block-blue .contact-text { color: #e3e9ff; }
+.block-blue .btn-solid { background: #fff; color: var(--blue); border-color: #fff; }
+.block-blue .btn-solid:hover { background: var(--sun); border-color: var(--sun); color: var(--navy); }
+.block-blue .btn-line { color: #fff; border-color: rgba(255, 255, 255, .7); }
+.block-blue .btn-line:hover { background: #fff; color: var(--blue); }
+.block-blue .contact-list { border-top-color: rgba(255, 255, 255, .25); }
+.block-blue .contact-list li > a { color: #fff; border-bottom-color: rgba(255, 255, 255, .25); }
+.block-blue .contact-list li > a:hover { color: var(--sun); }
+.block-blue .contact-list small { color: #c9d5ff; }
+.block-blue .topics li { background: rgba(255, 255, 255, .14); color: #fff; }
+.block-blue .topics li:first-child { background: var(--sun); color: var(--navy); }
+.block-blue :focus-visible { outline-color: #fff; }
+
+/* Pie */
+.site-footer { background: var(--navy); border-top: 0; }
+.footer-inner { color: #aab6d6; }
+.footer-inner a:hover { color: #fff; }
+.toast { background: var(--navy); }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+@media (max-width: 860px) {
+  .facts div { padding: 16px 18px; border-bottom: 0; }
+  .hero-photo { margin-right: 7%; }
+  .marquee { padding: 14px 0; }
+}

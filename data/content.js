@@ -36,6 +36,9 @@ window.SITE = {
     about: { src: "", alt: "Benito Gallardo trabajando" },
   },
 
+  /* Franja animada bajo la portada */
+  marquee: ["Emprendedor", "Desarrollador web", "Málaga", "Benitek", "JT Rent", "Construyendo en público"],
+
   /* 1. Presentación personal */
   intro: {
     statement:
@@ -74,6 +77,8 @@ window.SITE = {
       visible: true,
       name: "Benitek",
       kind: "Mi negocio",
+      color: "#2F5BFF", // color de la tarjeta
+      colorInk: "#ffffff",
       status: "desarrollo",
       summary: "Mi propio negocio de diseño y desarrollo web. Ahora mismo estoy preparando la marca, los servicios y la forma de trabajar.",
       role: "Fundador",
@@ -85,6 +90,8 @@ window.SITE = {
       visible: true,
       name: "JT Rent",
       kind: "Proyecto para cliente",
+      color: "#FFC83D",
+      colorInk: "#0A1A3F",
       status: "entregado",
       summary: "Web para una empresa real de alquiler de motos y scooters en Málaga. Los clientes consultan modelos, precio y disponibilidad y reservan por WhatsApp.",
       role: "Diseño y desarrollo web",
@@ -97,6 +104,8 @@ window.SITE = {
       visible: false, // Oculto por defecto. Cambia a true para mostrarlo.
       name: "SIFT",
       kind: "Idea de negocio",
+      color: "#14A37F",
+      colorInk: "#ffffff",
       status: "exploracion",
       summary: "Una idea empresarial que estoy explorando. Todavía no es un producto.",
       role: "Fundador",

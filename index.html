@@ -8,7 +8,7 @@
   <meta name="description"
     content="Soy Benito Gallardo, emprendedor y desarrollador web de Málaga. Estoy construyendo mis propios negocios y convirtiendo ideas en proyectos reales." />
   <meta name="author" content="Benito Gallardo Peral" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#2F5BFF" />
   <meta name="color-scheme" content="light" />
 
   <meta property="og:type" content="profile" />
@@ -87,18 +87,21 @@
       <figure class="hero-photo" data-photo="hero" data-ratio="4/5"></figure>
     </section>
 
+    <!-- Franja animada (contenido en data/content.js > marquee) -->
+    <div class="marquee" data-render="marquee" aria-hidden="true"></div>
+
     <!-- ========== 1. PRESENTACIÓN ========== -->
     <section class="block wrap" id="presentacion" aria-label="Presentación">
       <div data-render="intro"></div>
     </section>
 
     <!-- ========== 2. VISIÓN ========== -->
-    <section class="block wrap has-rule" id="vision" aria-labelledby="vision-title">
-      <div data-render="vision"></div>
+    <section class="block block-navy" id="vision" aria-labelledby="vision-title">
+      <div class="wrap" data-render="vision"></div>
     </section>
 
     <!-- ========== 3. NEGOCIOS ========== -->
-    <section class="block wrap has-rule" id="negocios" aria-labelledby="negocios-title">
+    <section class="block wrap" id="negocios" aria-labelledby="negocios-title">
       <header class="block-head">
         <h2 class="h2" id="negocios-title">Mis negocios y proyectos</h2>
         <p class="lead">Lo que estoy construyendo, con su estado real.</p>
@@ -107,7 +110,7 @@
     </section>
 
     <!-- ========== 4. SOBRE MÍ ========== -->
-    <section class="block block-surface" id="sobre-mi" aria-labelledby="story-title">
+    <section class="block block-sky" id="sobre-mi" aria-labelledby="story-title">
       <div class="wrap" data-render="story"></div>
     </section>
 
@@ -126,7 +129,7 @@
     </section>
 
     <!-- ========== 7. CONTENIDO / YOUTUBE ========== -->
-    <section class="block block-surface" id="contenido" aria-labelledby="contenido-title">
+    <section class="block block-sun" id="contenido" aria-labelledby="contenido-title">
       <div class="wrap" data-render="youtube"></div>
     </section>
 
@@ -139,8 +142,8 @@
     </section>
 
     <!-- ========== 8. CONTACTO ========== -->
-    <section class="block wrap contact" id="contacto" aria-labelledby="contacto-title">
-      <div data-render="contact"></div>
+    <section class="block block-blue contact" id="contacto" aria-labelledby="contacto-title">
+      <div class="wrap" data-render="contact"></div>
       <noscript>
         <h2 class="h2">Contacto</h2>
         <p><a href="mailto:benito.gallardoperal@outlook.com">benito.gallardoperal@outlook.com</a></p>
