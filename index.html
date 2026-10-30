@@ -3,328 +3,160 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benito Gallardo Peral – Desarrollador web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Benito Gallardo · Emprendedor y desarrollador web en Málaga</title>
   <meta name="description"
-    content="Benito Gallardo Peral, desarrollador web y de aplicaciones en Málaga. Angular, .NET, Java, Kotlin, PHP y MySQL." />
-  <link rel="icon" href="./assets/img/logo2.png" />
+    content="Soy Benito Gallardo, emprendedor y desarrollador web de Málaga. Estoy construyendo mis propios negocios y convirtiendo ideas en proyectos reales." />
+  <meta name="author" content="Benito Gallardo Peral" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:title" content="Benito Gallardo · Emprendedor y desarrollador web" />
+  <meta property="og:description"
+    content="Construyendo negocios. Creando mi propio camino. Emprendedor y desarrollador web de Málaga." />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml" />
+  <script>document.documentElement.classList.add("js");</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 
-  <script>
-    // Aplica el tema guardado antes de pintar para evitar parpadeo
-    try {
-      const t = localStorage.getItem("theme");
-      if (t) document.documentElement.setAttribute("data-theme", t);
-    } catch (e) { }
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Benito Gallardo Peral",
+    "jobTitle": "Emprendedor y desarrollador web",
+    "address": { "@type": "PostalAddress", "addressLocality": "Málaga", "addressCountry": "ES" },
+    "email": "mailto:benito.gallardoperal@outlook.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/benito-gallardo-peral/",
+      "https://github.com/BenitoCode"
+    ]
+  }
   </script>
 </head>
 
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
 
-  <!--===== HEADER =====-->
-  <header class="header" id="header">
-    <nav class="nav container">
-      <a href="#inicio" class="nav-logo" aria-label="Inicio">
-        <img src="./assets/img/logo2.png" alt="BenitoCode" />
-        <span>Benito<strong>Code</strong></span>
-      </a>
+  <!-- ========== CABECERA ========== -->
+  <header class="site-header" id="header">
+    <div class="wrap header-inner">
+      <a href="#inicio" class="wordmark" aria-label="Benito Gallardo, inicio">Benito Gallardo</a>
 
-      <ul class="nav-list" id="nav-menu">
-        <li><a href="#inicio" class="nav-link active">Inicio</a></li>
-        <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
-        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-        <li><a href="#contacto" class="nav-link">Contacto</a></li>
-      </ul>
+      <nav class="site-nav" id="site-nav" aria-label="Principal">
+        <ul>
+          <li><a href="#negocios">Negocios</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#trayectoria">Trayectoria</a></li>
+          <li><a href="#contenido">Contenido</a></li>
+          <li class="nav-contact"><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
 
-      <div class="nav-actions">
-        <button class="icon-btn" id="theme-toggle" aria-label="Cambiar tema"><i class="bx bx-moon"></i></button>
-        <a href="#contacto" class="btn btn-small nav-cta">Hablemos</a>
-        <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><i
-            class="bx bx-menu"></i></button>
-      </div>
-    </nav>
+      <button class="menu-btn" id="menu-btn" aria-controls="site-nav" aria-expanded="false">
+        <span class="menu-label">Menú</span>
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
+      </button>
+    </div>
   </header>
 
-  <main id="contenido">
-    <!--===== HERO =====-->
-    <section class="hero container" id="inicio">
-      <div class="hero-text reveal">
-        <p class="eyebrow">Soy Benito Gallardo Peral</p>
-        <p class="hero-lead">Me dedico a construir lo que cualquier proyecto necesita hoy para crecer:</p>
-        <h1 class="hero-title">Su <em>web</em></h1>
-        <p class="hero-sub">Desarrollador web y de aplicaciones en Málaga. Diseño, programo y conecto el front-end con
-          el back-end para que tu idea funcione de verdad.</p>
-        <div class="hero-btns">
-          <a href="#proyectos" class="btn">Empezar <i class="bx bx-right-arrow-alt"></i></a>
-          <a href="./pdf/CV-BenitoGallardoDEV.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Descargar CV
-            <i class="bx bx-download"></i></a>
+  <main id="main">
+    <!-- ========== PORTADA ========== -->
+    <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="hero-tag">SOY BENITO</p>
+        <h1 class="hero-title" id="hero-title">
+          <span class="line"><span>Construyendo negocios.</span></span>
+          <span class="line"><span>Creando mi propio camino.</span></span>
+        </h1>
+        <p class="hero-text">Emprendedor y desarrollador web de Málaga. Estoy construyendo mis propios negocios y
+          convirtiendo mis ideas en proyectos reales.</p>
+        <div class="hero-actions">
+          <a href="#negocios" class="btn btn-solid">Mis negocios</a>
+          <a href="#sobre-mi" class="btn btn-line">Sobre mí</a>
         </div>
       </div>
-      <div class="hero-img reveal">
-        <div class="hero-blob"></div>
-        <img src="assets/img/fotob.webp" alt="Retrato de Benito Gallardo" />
-      </div>
+      <figure class="hero-photo" data-photo="hero" data-ratio="4/5"></figure>
     </section>
 
-    <!--===== CONTACTO DESTACADO (equivalente a la newsletter) =====-->
-    <section class="container">
-      <div class="signup reveal">
-        <div class="signup-copy">
-          <h2>¿Tienes un proyecto en mente? <em>Escríbeme</em></h2>
-          <p>Cuéntame qué necesitas y te explico cómo lo haría, sin compromiso.</p>
-        </div>
-        <div class="signup-box">
-          <div class="mail-field">
-            <i class="bx bx-envelope"></i>
-            <span id="mail-text">benito.gallardoperal@outlook.com</span>
-            <button class="copy-btn" id="copy" aria-label="Copiar email"><i class="bx bx-copy"></i></button>
-          </div>
-          <a href="mailto:benito.gallardoperal@outlook.com" class="btn btn-light">Enviar email</a>
-        </div>
-      </div>
+    <!-- ========== 1. PRESENTACIÓN ========== -->
+    <section class="block wrap" id="presentacion" aria-label="Presentación">
+      <div data-render="intro"></div>
     </section>
 
-    <!--===== ÁREAS =====-->
-    <section class="section container">
-      <h2 class="section-title reveal">Saber desarrollar de principio a fin es lo que necesita <em>tu proyecto</em>
-      </h2>
-      <div class="areas">
-        <article class="area reveal">
-          <div class="area-icon"><i class="bx bx-palette"></i></div>
-          <h3>Front-end</h3>
-          <p>Interfaces limpias y responsive con HTML, CSS, JavaScript, TypeScript, Angular y Bootstrap.</p>
-        </article>
-        <article class="area reveal">
-          <div class="area-icon"><i class="bx bx-server"></i></div>
-          <h3>Back-end</h3>
-          <p>APIs REST con ASP.NET, Razor Pages en .NET 9, Java y PHP. Lógica segura y bien organizada.</p>
-        </article>
-        <article class="area reveal">
-          <div class="area-icon"><i class="bx bx-mobile-alt"></i></div>
-          <h3>Apps móviles</h3>
-          <p>Aplicaciones Android con Kotlin y Android Studio, de la pantalla de login a la lógica completa.</p>
-        </article>
-        <article class="area reveal">
-          <div class="area-icon"><i class="bx bx-data"></i></div>
-          <h3>Bases de datos</h3>
-          <p>Modelado y consultas con MySQL y MongoDB, e integración con Entity Framework.</p>
-        </article>
-      </div>
+    <!-- ========== 2. VISIÓN ========== -->
+    <section class="block wrap has-rule" id="vision" aria-labelledby="vision-title">
+      <div data-render="vision"></div>
     </section>
 
-    <!--===== LOGOS / TECNOLOGÍAS =====-->
-    <section class="section section-tight container" id="skills">
-      <p class="logos-lead reveal">Trabajo con estas tecnologías:</p>
-      <div class="logos reveal">
-        <div class="logo-item"><img src="assets/img/html5.webp" alt="" /><span>HTML5</span></div>
-        <div class="logo-item"><img src="assets/img/css3.webp" alt="" /><span>CSS3</span></div>
-        <div class="logo-item"><img src="assets/img/javascript.webp" alt="" /><span>JavaScript</span></div>
-        <div class="logo-item"><img src="assets/img/typescript.webp" alt="" /><span>TypeScript</span></div>
-        <div class="logo-item"><img src="assets/img/angular.webp" alt="" /><span>Angular</span></div>
-        <div class="logo-item"><i class="bx bxl-bootstrap"></i><span>Bootstrap</span></div>
-        <div class="logo-item"><img src="assets/img/ASPnetMVC.png" alt="" /><span>.NET</span></div>
-        <div class="logo-item"><img src="assets/img/java.png" alt="" /><span>Java</span></div>
-        <div class="logo-item"><i class="bx bxl-android"></i><span>Kotlin</span></div>
-        <div class="logo-item"><img src="assets/img/php.png" alt="" /><span>PHP</span></div>
-        <div class="logo-item"><img src="assets/img/mysql.png" alt="" /><span>MySQL</span></div>
-        <div class="logo-item"><img src="assets/img/mongodb.png" alt="" /><span>MongoDB</span></div>
-      </div>
+    <!-- ========== 3. NEGOCIOS ========== -->
+    <section class="block wrap has-rule" id="negocios" aria-labelledby="negocios-title">
+      <header class="block-head">
+        <h2 class="h2" id="negocios-title">Mis negocios y proyectos</h2>
+        <p class="lead">Lo que estoy construyendo, con su estado real.</p>
+      </header>
+      <div class="businesses" data-render="businesses"></div>
     </section>
 
-    <!--===== PROYECTOS (¿Cómo te puedo ayudar?) =====-->
-    <section class="section container" id="proyectos">
-      <h2 class="section-title center reveal">¿Cómo te puedo <em>ayudar</em>?</h2>
-      <p class="section-sub reveal">Estos son algunos de los proyectos que he construido.</p>
-
-      <div class="projects">
-        <article class="project reveal">
-          <div class="project-media"><img src="assets/img/homesolution.png" alt="Captura de HomeSolution" /></div>
-          <div class="project-body">
-            <span class="tag">Aplicación web · Full stack</span>
-            <h3>HomeSolution</h3>
-            <p>Web de servicios para el hogar (fontanería, pladur, pintura…) con Angular en el front-end y una API REST
-              en .NET Core. Incluye login, gestión de servicios y sección de ofertas.</p>
-            <ul class="stack">
-              <li>Angular</li><li>TypeScript</li><li>.NET</li><li>API REST</li>
-            </ul>
-            <div class="project-btns">
-              <a href="https://github.com/AmandaCode1/HomeSolution" target="_blank" rel="noopener"
-                class="btn btn-small">Código <i class="bx bxl-github"></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-media placeholder" data-initials="EC"></div>
-          <div class="project-body">
-            <span class="tag">E-commerce · .NET</span>
-            <h3>ECommerceRazor</h3>
-            <p>Tienda online con Razor Pages en .NET: gestión de usuarios, carrito de compra e integración de pagos,
-              con Entity Framework para los datos.</p>
-            <ul class="stack">
-              <li>.NET Razor Pages</li><li>Entity Framework</li><li>JavaScript</li>
-            </ul>
-            <div class="project-btns">
-              <a href="https://github.com/BenitoCode/EcommerceRazor" target="_blank" rel="noopener"
-                class="btn btn-small">Código <i class="bx bxl-github"></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-media"><img src="assets/img/pokeApi.png" alt="Captura de la Pokédex" /></div>
-          <div class="project-body">
-            <span class="tag">Front-end · APIs</span>
-            <h3>PokeApi</h3>
-            <p>Pokédex interactiva en Angular que consume la API pública de Pokémon y muestra la información de cada
-              criatura de forma dinámica.</p>
-            <ul class="stack">
-              <li>Angular</li><li>TypeScript</li><li>HTML</li><li>CSS</li>
-            </ul>
-            <div class="project-btns">
-              <a href="https://github.com/BenitoCode/Pokedex" target="_blank" rel="noopener"
-                class="btn btn-small">Código <i class="bx bxl-github"></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-media"><img src="assets/img/pets.png" alt="Captura de Web Site Pets" /></div>
-          <div class="project-body">
-            <span class="tag">Diseño web</span>
-            <h3>Web Site Pets</h3>
-            <p>Tienda online ficticia para mascotas, centrada en diseño responsive, experiencia de usuario y una estética
-              profesional orientada al comercio digital.</p>
-            <ul class="stack">
-              <li>HTML</li><li>CSS</li><li>JavaScript</li>
-            </ul>
-            <div class="project-btns">
-              <a href="https://github.com/BenitoCode/happyPets" target="_blank" rel="noopener"
-                class="btn btn-small">Código <i class="bx bxl-github"></i></a>
-              <a href="https://happypets-example.netlify.app/" target="_blank" rel="noopener"
-                class="btn btn-small btn-ghost">Ver web <i class="bx bx-link-external"></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-media placeholder" data-initials="KU"></div>
-          <div class="project-body">
-            <span class="tag">Front-end · APIs</span>
-            <h3>Knife-Up</h3>
-            <p>Web de reseñas y venta de cuchillos tácticos y navajas, responsive y conectada a una API externa para
-              mostrar los productos dinámicamente.</p>
-            <ul class="stack">
-              <li>HTML</li><li>CSS</li><li>JavaScript</li>
-            </ul>
-            <div class="project-btns">
-              <a href="https://github.com/BenitoCode/Nkife-UP" target="_blank" rel="noopener"
-                class="btn btn-small">Código <i class="bx bxl-github"></i></a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-media"><img src="assets/img/loginandroid.png" alt="Captura de Login Basic" /></div>
-          <div class="project-body">
-            <span class="tag">App móvil · Android</span>
-            <h3>Login Basic</h3>
-            <p>App Android en Kotlin con un sistema de inicio de sesión y validación de campos, para practicar
-              interfaces móviles y lógica de autenticación.</p>
-            <ul class="stack">
-              <li>Kotlin</li><li>Android Studio</li>
-            </ul>
-            <div class="project-btns">
-              <a href="https://github.com/BenitoCode" target="_blank" rel="noopener" class="btn btn-small">GitHub <i
-                  class="bx bxl-github"></i></a>
-            </div>
-          </div>
-        </article>
-      </div>
+    <!-- ========== 4. SOBRE MÍ ========== -->
+    <section class="block block-surface" id="sobre-mi" aria-labelledby="story-title">
+      <div class="wrap" data-render="story"></div>
     </section>
 
-    <!--===== SOBRE MÍ =====-->
-    <section class="section about-wrap" id="sobre-mi">
-      <div class="container about">
-        <div class="about-img reveal">
-          <img src="assets/img/fotob.webp" alt="Benito Gallardo" />
-        </div>
-        <div class="about-text reveal">
-          <h2 class="section-title">Sobre <em>mí</em></h2>
-          <p>Soy Benito, desarrollador de software de Málaga. Me gusta unir diseño y funcionalidad: que una web se vea
-            bien y, sobre todo, que funcione. Busco aplicar lo que sé en proyectos reales y seguir aprendiendo en cada
-            uno.</p>
-
-          <h3>Mi experiencia</h3>
-          <ul class="checks">
-            <li><i class="bx bx-check"></i><span><strong>Programador en Haleteo</strong> (Estepona, 2024): apps
-                móviles con Kotlin, diseño web y web scraping en C#.</span></li>
-            <li><i class="bx bx-check"></i><span><strong>Diseñador web en Italia</strong> (Isernia, 2022): gestión de
-                productos e imágenes en WordPress y Photoshop.</span></li>
-            <li><i class="bx bx-check"></i><span><strong>Grado Superior en Desarrollo de Aplicaciones
-                  Multiplataforma</strong> en el CPIFP Alan Turing.</span></li>
-          </ul>
-
-          <h3>En la actualidad</h3>
-          <ul class="checks">
-            <li><i class="bx bx-check"></i><span>Cursando el <strong>Grado Superior en Desarrollo de Aplicaciones
-                  Web</strong> en Digitech Málaga.</span></li>
-            <li><i class="bx bx-check"></i><span>Construyendo proyectos con Angular, .NET 9 y bases de datos
-                relacionales.</span></li>
-            <li><i class="bx bx-check"></i><span>Abierto a prácticas, empleo y proyectos freelance.</span></li>
-          </ul>
-        </div>
-      </div>
+    <!-- ========== 5. TRAYECTORIA ========== -->
+    <section class="block wrap" id="trayectoria" aria-labelledby="trayectoria-title">
+      <header class="block-head">
+        <h2 class="h2" id="trayectoria-title">Formación y trayectoria</h2>
+      </header>
+      <div data-render="timeline"></div>
+      <div data-render="learning"></div>
     </section>
 
-    <!--===== CTA FINAL =====-->
-    <section class="section container" id="contacto">
-      <div class="cta reveal">
-        <h2>Cada semana sin web es una semana en la que <em>tus clientes no te encuentran</em>.</h2>
-        <p>Cuéntame tu idea y la convertimos en algo real.</p>
-        <div class="cta-btns">
-          <a href="mailto:benito.gallardoperal@outlook.com" class="btn btn-light">Escribirme <i
-              class="bx bx-mail-send"></i></a>
-          <a href="tel:+34722846918" class="btn btn-ghost-light">+34 722 84 69 18 <i class="bx bx-phone"></i></a>
-        </div>
-      </div>
+    <!-- ========== 6. AHORA ========== -->
+    <section class="block wrap has-rule" id="ahora" aria-labelledby="ahora-title">
+      <div data-render="now"></div>
+    </section>
+
+    <!-- ========== 7. CONTENIDO / YOUTUBE ========== -->
+    <section class="block block-surface" id="contenido" aria-labelledby="contenido-title">
+      <div class="wrap" data-render="youtube"></div>
+    </section>
+
+    <!-- Se muestran solo cuando tienen contenido en data/content.js -->
+    <section class="block wrap" id="escritos" aria-labelledby="escritos-title" hidden>
+      <div data-render="articles"></div>
+    </section>
+    <section class="block wrap" id="galeria" aria-labelledby="galeria-title" hidden>
+      <div data-render="gallery"></div>
+    </section>
+
+    <!-- ========== 8. CONTACTO ========== -->
+    <section class="block wrap contact" id="contacto" aria-labelledby="contacto-title">
+      <div data-render="contact"></div>
+      <noscript>
+        <h2 class="h2">Contacto</h2>
+        <p><a href="mailto:benito.gallardoperal@outlook.com">benito.gallardoperal@outlook.com</a></p>
+      </noscript>
     </section>
   </main>
 
-  <!--===== FOOTER =====-->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a href="#inicio" class="nav-logo footer-logo">
-        <img src="./assets/img/logo2.png" alt="" />
-        <span>Benito<strong>Code</strong></span>
-      </a>
-      <div class="footer-social">
-        <a href="https://www.linkedin.com/in/benito-gallardo-peral/" target="_blank" rel="noopener"
-          aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/BenitoCode" target="_blank" rel="noopener" aria-label="GitHub"><i
-            class="bx bxl-github"></i></a>
-        <a href="mailto:benito.gallardoperal@outlook.com" aria-label="Email"><i class="bx bx-envelope"></i></a>
-      </div>
-      <ul class="footer-links">
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="./pdf/CV-BenitoGallardoDEV.pdf" target="_blank" rel="noopener">CV</a></li>
-      </ul>
-      <p class="footer-copy">© <span id="year">2026</span> Benito Gallardo Peral · Málaga</p>
-    </div>
+  <footer class="site-footer">
+    <div class="wrap footer-inner" data-render="footer"></div>
   </footer>
 
-  <div class="toast" id="toast" role="status" aria-live="polite">Email copiado</div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="assets/js/scripts.js"></script>
+  <script src="./data/content.js"></script>
+  <script src="./assets/js/components.js"></script>
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
