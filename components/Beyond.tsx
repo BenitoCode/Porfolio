@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { SiteContent } from "@/content/types";
 import SectionHead from "./SectionHead";
 
@@ -20,9 +21,17 @@ export default function Beyond({ c }: { c: SiteContent }) {
         {beyond.books.length > 0 ? (
           <div className="books rv">
             <h3 className="label">{beyond.booksTitle}</h3>
-            <ol className="book-list">
-              {beyond.books.map((book) => (
+            <ol className="shelf">
+              {beyond.books.map((book, index) => (
                 <li key={book.title} className={book.reading ? "reading" : undefined}>
+                  {book.cover ? (
+                    <Image className="cover" src={book.cover.src} alt={book.cover.alt} width={400} height={600} />
+                  ) : (
+                    <div className={`cover cover-${index % 4}`} aria-hidden="true">
+                      <span className="cover-title">{book.title}</span>
+                      <span className="cover-author">{book.author}</span>
+                    </div>
+                  )}
                   {book.reading ? <span className="book-now">{beyond.readingNow}</span> : null}
                   <cite>{book.title}</cite>
                   <span className="book-author">{book.author}</span>

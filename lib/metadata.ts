@@ -26,7 +26,7 @@ export function buildMetadata(c: SiteContent): Metadata {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F3F4F1" },
-    { media: "(prefers-color-scheme: dark)", color: "#0F1113" },
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0B10" },
   ],
 };

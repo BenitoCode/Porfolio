@@ -11,6 +11,10 @@ import Vision from "./Vision";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import Reveal from "./Reveal";
+import Now from "./Now";
+import Events from "./Events";
+import BlogTeaser from "./BlogTeaser";
+import { getPosts } from "@/lib/blog";
 
 // Datos estructurados: persona fundadora de Benitek.
 function personJsonLd(c: SiteContent) {
@@ -29,17 +33,22 @@ function personJsonLd(c: SiteContent) {
 }
 
 export default function SitePage({ c }: { c: SiteContent }) {
+  const posts = getPosts();
+
   return (
     <>
       <a className="skip-link" href="#main">{c.ui.skip}</a>
       <Header c={c} />
       <main id="main">
         <Hero c={c} />
+        <Now c={c} />
         <About c={c} />
         <Timeline c={c} />
         <Projects c={c} />
         <Skills c={c} />
         <Beyond c={c} />
+        <Events c={c} />
+        <BlogTeaser c={c} posts={posts} />
         <Vision c={c} />
         <Contact c={c} />
       </main>
