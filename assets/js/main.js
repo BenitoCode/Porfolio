@@ -31,8 +31,7 @@
     const spy = new IntersectionObserver(
       (entries) => entries.forEach((e) => {
         if (!e.isIntersecting) return;
-        links.forEach((a) => a.toggleAttribute("aria-current", a.getAttribute("href") === `#${e.target.id}`));
-        links.forEach((a) => a.hasAttribute("aria-current") && a.setAttribute("aria-current", "true"));
+        links.forEach((a) => (a.getAttribute("href") === `#${e.target.id}` ? a.setAttribute("aria-current", "true") : a.removeAttribute("aria-current")));
       }),
       { rootMargin: "-40% 0px -55% 0px" }
     );

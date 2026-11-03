@@ -10,8 +10,9 @@ Todo el contenido está en **`data/content.js`**. No hace falta tocar el HTML.
 | Quiero… | Qué cambiar en `data/content.js` |
 |---|---|
 | Añadir un negocio o proyecto | Copia un bloque dentro de `businesses` y cambia los textos |
-| Ocultar algo sin borrarlo | `visible: false` (SIFT está oculto así) |
-| Cambiar el estado de un proyecto | `status`: `"activo"`, `"desarrollo"`, `"exploracion"` o `"entregado"` |
+| Añadir un trabajo para un cliente | Copia un bloque dentro de `clientWork` y cambia los textos |
+| Ocultar algo sin borrarlo | `visible: false` |
+| Cambiar el estado de un proyecto | `status`: `"activo"`, `"desarrollo"`, `"proximamente"`, `"exploracion"` o `"entregado"` |
 | Poner mis fotos | Copia la imagen en `assets/img/fotos/` y pon la ruta en `photos.hero.src` o `photos.about.src` |
 | Poner una captura de un negocio | Copia la imagen en `assets/img/negocios/` y pon la ruta en `image.src` del negocio |
 | Contar mi historia | Edita `story.chapters` (un capítulo por etapa) |
