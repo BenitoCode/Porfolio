@@ -1,15 +1,15 @@
-import { site } from "@/content/site";
+import type { SiteContent } from "@/content/types";
+import Marked from "./Marked";
 
-export default function About() {
-  const { about } = site;
-  const [before, highlight, after] = about.statement;
+export default function About({ c }: { c: SiteContent }) {
+  const { about } = c;
 
   return (
     <section className="section" id="sobre-mi" aria-labelledby="sobre-mi-titulo">
       <div className="wrap about-grid">
         <div className="rv">
-          <h2 className="label" id="sobre-mi-titulo">Sobre mí</h2>
-          <p className="statement">{before}<mark>{highlight}</mark>{after}</p>
+          <h2 className="label" id="sobre-mi-titulo">{about.label}</h2>
+          <p className="statement"><Marked text={about.statement} /></p>
           <dl className="facts">
             {about.facts.map((fact) => (
               <div key={fact.term}><dt className="label">{fact.term}</dt><dd>{fact.value}</dd></div>

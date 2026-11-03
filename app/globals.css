@@ -73,6 +73,8 @@ mark { background: linear-gradient(transparent 58%, var(--sun) 58%); color: inhe
 .top-actions { display: flex; align-items: center; gap: 8px; }
 .pill { font-size: 14px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--ink); border-radius: 999px; padding: 7px 16px; white-space: nowrap; transition: background .2s, color .2s; }
 .pill:hover { background: var(--ink); color: var(--bg); }
+.lang { font-family: var(--mono); font-size: 13px; font-weight: 500; text-decoration: none; color: var(--muted); padding: 8px 10px; border-radius: 999px; transition: color .2s, background .2s; }
+.lang:hover { color: var(--ink); background: var(--surface); }
 .menu-toggle { display: none; width: 40px; height: 40px; border: 0; background: none; cursor: pointer; color: var(--ink); place-items: center; }
 .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after { display: block; width: 20px; height: 2px; background: currentColor; border-radius: 2px; position: relative; transition: transform .3s var(--ease), background .2s; }
 .menu-toggle span::before, .menu-toggle span::after { content: ""; position: absolute; left: 0; }
@@ -87,6 +89,12 @@ mark { background: linear-gradient(transparent 58%, var(--sun) 58%); color: inhe
   .nav { display: none; position: absolute; top: var(--header); left: 0; right: 0; flex-direction: column; gap: 0; padding: 8px 16px 20px; background: var(--bg); border-bottom: 1px solid var(--line); font-size: 18px; color: var(--ink); }
   .nav.open { display: flex; }
   .nav a { padding: 12px 0; border-bottom: 1px solid var(--line); }
+}
+.nav-contact { display: none; }
+@media (max-width: 480px) {
+  .top-inner { gap: 12px; }
+  .top-actions .pill { display: none; }
+  .nav .nav-contact { display: block; font-weight: 600; }
 }
 
 /* ---------- Portada ---------- */
@@ -143,8 +151,8 @@ mark { background: linear-gradient(transparent 58%, var(--sun) 58%); color: inhe
 .entry-card h3 { font-size: clamp(20px, 2vw, 24px); grid-column: 1 / -1; }
 .entry-kind { font-family: var(--mono); font-size: 12px; color: var(--sea); }
 .entry-years { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.entry-meta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 15px; color: var(--muted); }
-.entry-meta span + span::before { content: "·"; margin-right: 16px; }
+.entry-meta { grid-column: 1 / -1; display: grid; gap: 2px; font-size: 15px; color: var(--muted); }
+.entry-meta span + span { color: var(--ink); font-weight: 500; }
 @media (max-width: 560px) { .entry-card { grid-template-columns: minmax(0, 1fr); padding: 18px; } }
 
 /* ---------- Proyectos ---------- */
@@ -181,9 +189,10 @@ mark { background: linear-gradient(transparent 58%, var(--sun) 58%); color: inhe
 @media (max-width: 820px) { .projects { grid-template-columns: minmax(0, 1fr); } .project.wide .shot { aspect-ratio: 16 / 9; } }
 
 /* ---------- Habilidades ---------- */
-.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.skills { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
 .skill-col { border-top: 3px solid var(--ink); padding-top: 20px; }
 .skill-trabajo { border-top-color: var(--sea); }
+.skill-experiencia { border-top-color: var(--muted); }
 .skill-aprendo { border-top-color: var(--sun); }
 .skill-col h3 { font-size: 22px; margin-bottom: 6px; }
 .skill-col > p { color: var(--muted); font-size: 15px; margin-bottom: 18px; }
@@ -191,7 +200,8 @@ mark { background: linear-gradient(transparent 58%, var(--sun) 58%); color: inhe
 .tags li { font-size: 15px; font-weight: 500; border: 1px solid var(--line); background: var(--surface); border-radius: 4px; padding: 6px 12px; }
 .ai-note { margin-top: 40px; padding: 20px 24px; border-left: 3px solid var(--sea); background: var(--surface); max-width: 760px; color: var(--muted); }
 .ai-note strong { color: var(--ink); }
-@media (max-width: 900px) { .skills { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 1100px) { .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; } }
+@media (max-width: 640px) { .skills { grid-template-columns: minmax(0, 1fr); } }
 
 /* ---------- Más allá del código (bloque invertido) ---------- */
 .beyond { background: var(--ink); color: var(--bg); border-top: 0; }
@@ -204,8 +214,14 @@ mark { background: linear-gradient(transparent 58%, var(--sun) 58%); color: inhe
 .interest .label { color: var(--sun); }
 .interest h3 { font-size: clamp(24px, 2.6vw, 34px); }
 .interest p { color: color-mix(in srgb, var(--bg) 72%, var(--ink)); max-width: 46ch; }
-.books { margin-top: 40px; display: grid; gap: 14px; }
-.books ul { display: grid; gap: 8px; color: color-mix(in srgb, var(--bg) 80%, var(--ink)); }
+.books { margin-top: clamp(48px, 6vw, 72px); display: grid; gap: 20px; }
+.beyond .books h3.label { color: var(--sun); }
+.book-list { display: flex; flex-wrap: wrap; gap: 2px; background: color-mix(in srgb, var(--bg) 18%, var(--ink)); border: 2px solid color-mix(in srgb, var(--bg) 18%, var(--ink)); border-radius: 8px; overflow: hidden; }
+.book-list li { flex: 1 1 220px; background: var(--ink); padding: 22px 24px; display: grid; gap: 4px; align-content: start; }
+.book-list cite { font-family: var(--display); font-style: normal; font-weight: 700; font-size: 20px; line-height: 1.2; color: var(--bg); }
+.book-author { font-size: 14px; color: color-mix(in srgb, var(--bg) 65%, var(--ink)); }
+.book-list li.reading { background: color-mix(in srgb, var(--sun) 14%, var(--ink)); }
+.book-now { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--sun); margin-bottom: 6px; }
 @media (max-width: 900px) { .interests { grid-template-columns: minmax(0, 1fr); } .interest, .interest.big { grid-column: auto; } }
 
 /* ---------- Visión ---------- */
@@ -215,6 +231,8 @@ mark { background: linear-gradient(transparent 58%, var(--sun) 58%); color: inhe
 .goal h3 { font-size: clamp(22px, 2.6vw, 34px); }
 .goal p { color: var(--muted); margin-top: 6px; max-width: 60ch; }
 .goal .label { white-space: nowrap; }
+.goal.highlight { background: var(--sun); border-top-color: var(--sun); padding-inline: 24px; border-radius: 6px; margin-top: 12px; }
+.goal.highlight h3, .goal.highlight p, .goal.highlight .label { color: var(--sun-ink); }
 @media (max-width: 560px) { .goal { grid-template-columns: minmax(0, 1fr); gap: 8px; } .goal .label { order: -1; } }
 
 /* ---------- Contacto ---------- */

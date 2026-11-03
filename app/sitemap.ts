@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/content/site";
+import { siteUrl } from "@/content/shared";
 
 export const dynamic = "force-static";
 
-// Hasta que site.url tenga el dominio definitivo, el sitemap sale vacío.
 export default function sitemap(): MetadataRoute.Sitemap {
-  return site.url ? [{ url: `${site.url}/`, changeFrequency: "monthly", priority: 1 }] : [];
+  const languages = { es: `${siteUrl}/`, en: `${siteUrl}/en/` };
+  return [
+    { url: `${siteUrl}/`, changeFrequency: "monthly", priority: 1, alternates: { languages } },
+    { url: `${siteUrl}/en/`, changeFrequency: "monthly", priority: 0.8, alternates: { languages } },
+  ];
 }

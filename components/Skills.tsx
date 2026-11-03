@@ -1,17 +1,14 @@
-import { site } from "@/content/site";
+import type { SiteContent } from "@/content/types";
 import SectionHead from "./SectionHead";
+import Marked from "./Marked";
 
-export default function Skills() {
-  const { skills } = site;
+export default function Skills({ c }: { c: SiteContent }) {
+  const { skills, ui } = c;
 
   return (
     <section className="section" id="habilidades" aria-labelledby="habilidades-titulo">
       <div className="wrap">
-        <SectionHead
-          label="Habilidades"
-          id="habilidades-titulo"
-          title={<>Lo que sé, lo que uso y <mark>lo que estoy aprendiendo</mark>.</>}
-        />
+        <SectionHead label={skills.label} id="habilidades-titulo" title={<Marked text={skills.title} />} />
         <div className="skills">
           {skills.groups.map((group) => (
             <div className={`skill-col skill-${group.id} rv`} key={group.id}>
@@ -23,7 +20,7 @@ export default function Skills() {
             </div>
           ))}
         </div>
-        <p className="ai-note rv"><strong>Sobre la IA:</strong> {skills.aiNote}</p>
+        <p className="ai-note rv"><strong>{ui.aiLabel}</strong> {skills.aiNote}</p>
       </div>
     </section>
   );

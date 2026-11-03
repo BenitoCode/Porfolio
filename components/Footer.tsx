@@ -1,11 +1,12 @@
-import { site } from "@/content/site";
+import type { SiteContent } from "@/content/types";
+import { person } from "@/content/shared";
 
-export default function Footer() {
+export default function Footer({ c }: { c: SiteContent }) {
   return (
     <footer className="footer">
       <div className="wrap footer-inner">
-        <span>© {new Date().getFullYear()} {site.person.name} · {site.person.city}</span>
-        <span>{site.hero.version.split(" · ").slice(1).join(" · ")}</span>
+        <span>© {new Date().getFullYear()} {person.name} · {person.city}</span>
+        <span>{c.ui.footer}</span>
       </div>
     </footer>
   );

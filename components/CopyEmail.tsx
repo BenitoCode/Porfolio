@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 
-export default function CopyEmail({ email }: { email: string }) {
-  const [copied, setCopied] = useState(false);
+export default function CopyEmail({ email, copy, copied }: { email: string; copy: string; copied: string }) {
+  const [done, setDone] = useState(false);
 
-  const copy = async () => {
+  const onCopy = async () => {
     try {
       await navigator.clipboard.writeText(email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
+      setDone(true);
+      setTimeout(() => setDone(false), 1800);
     } catch {
       // Sin acceso al portapapeles: el correo sigue visible y seleccionable.
     }
@@ -18,7 +18,7 @@ export default function CopyEmail({ email }: { email: string }) {
   return (
     <div className="email-row">
       <a className="email" href={`mailto:${email}`}>{email}</a>
-      <button className="copy" type="button" onClick={copy} aria-live="polite">{copied ? "Copiado" : "Copiar correo"}</button>
+      <button className="copy" type="button" onClick={onCopy} aria-live="polite">{done ? copied : copy}</button>
     </div>
   );
 }

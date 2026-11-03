@@ -2,17 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { site, statusLabel, type Project, type ProjectKind } from "@/content/site";
+import type { Project, ProjectKind, SiteContent } from "@/content/types";
 import SectionHead from "./SectionHead";
+import Marked from "./Marked";
 
-const filters: { id: ProjectKind | "all"; label: string }[] = [
-  { id: "all", label: "Todos" },
-  { id: "negocio", label: "Negocios propios" },
-  { id: "cliente", label: "Para clientes" },
-  { id: "personal", label: "Personales" },
-];
+const kinds: (ProjectKind | "all")[] = ["all", "negocio", "cliente", "personal"];
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, ui }: { project: Project; ui: SiteContent["ui"] }) {
   return (
     <article className={`project rv${project.wide ? " wide" : ""}`}>
       {project.image ? (
@@ -25,19 +21,19 @@ function ProjectCard({ project }: { project: Project }) {
       <div className="project-body">
         <div className="project-top">
           <span className="label">{project.label}</span>
-          {project.status ? <span className={`status status-${project.status}`}>{statusLabel[project.status]}</span> : null}
+          {project.status ? <span className={`status status-${project.status}`}>{ui.status[project.status]}</span> : null}
         </div>
         <h3>{project.name}</h3>
         <p>{project.summary}</p>
         {project.role || project.tech ? (
           <dl className="specs">
-            {project.role ? (<><dt>Mi papel</dt><dd>{project.role}</dd></>) : null}
-            {project.tech ? (<><dt>Tecnologías</dt><dd>{project.tech.join(", ")}</dd></>) : null}
+            {project.role ? (<><dt>{ui.role}</dt><dd>{project.role}</dd></>) : null}
+            {project.tech ? (<><dt>{ui.tech}</dt><dd>{project.tech.join(", ")}</dd></>) : null}
           </dl>
         ) : null}
         {project.url ? (
           <a className="link" href={project.url} target="_blank" rel="noopener">
-            {project.urlLabel ?? "Visitar"} <span aria-hidden="true">↗</span>
+            {project.urlLabel ?? ui.visit} <span aria-hidden="true">↗</span>
           </a>
         ) : null}
       </div>
@@ -45,38 +41,34 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-export default function Projects() {
-  const projects = site.projects.filter((project) => project.visible);
+export default function Projects({ c }: { c: SiteContent }) {
+  const { projects, ui } = c;
+  const items = projects.items.filter((project) => project.visible);
   const [active, setActive] = useState<ProjectKind | "all">("all");
-  const available = filters.filter((filter) => filter.id === "all" || projects.some((project) => project.kind === filter.id));
-  const shown = active === "all" ? projects : projects.filter((project) => project.kind === active);
+  const available = kinds.filter((kind) => kind === "all" || items.some((project) => project.kind === kind));
+  const shown = active === "all" ? items : items.filter((project) => project.kind === active);
 
   return (
     <section className="section" id="proyectos" aria-labelledby="proyectos-titulo">
       <div className="wrap">
-        <SectionHead
-          label="Mis proyectos y negocios"
-          id="proyectos-titulo"
-          title={<>Lo que estoy <mark>construyendo</mark>.</>}
-          lead="Negocios propios, trabajos para clientes y proyectos personales, cada uno con su estado real."
-        />
+        <SectionHead label={projects.label} id="proyectos-titulo" title={<Marked text={projects.title} />} lead={projects.lead} />
         {available.length > 2 ? (
-          <div className="filters" role="group" aria-label="Filtrar proyectos">
-            {available.map((filter) => (
-              <button key={filter.id} type="button" className="chip" aria-pressed={active === filter.id} onClick={() => setActive(filter.id)}>
-                {filter.label}
+          <div className="filters" role="group" aria-label={projects.filterLabel}>
+            {available.map((kind) => (
+              <button key={kind} type="button" className="chip" aria-pressed={active === kind} onClick={() => setActive(kind)}>
+                {projects.filters[kind]}
               </button>
             ))}
           </div>
         ) : null}
         <div className="projects">
-          {shown.map((project) => <ProjectCard key={project.id} project={project} />)}
-          {site.nextSlot.visible && active === "all" ? (
+          {shown.map((project) => <ProjectCard key={project.id} project={project} ui={ui} />)}
+          {projects.nextSlot.visible && active === "all" ? (
             <article className="project empty rv">
               <div className="project-body">
-                <span className="label">{site.nextSlot.label}</span>
-                <h3>{site.nextSlot.name}</h3>
-                <p>{site.nextSlot.text}</p>
+                <span className="label">{projects.nextSlot.label}</span>
+                <h3>{projects.nextSlot.name}</h3>
+                <p>{projects.nextSlot.text}</p>
               </div>
             </article>
           ) : null}

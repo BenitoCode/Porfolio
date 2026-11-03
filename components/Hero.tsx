@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { site } from "@/content/site";
+import type { SiteContent } from "@/content/types";
 
-export default function Hero() {
-  const { hero } = site;
+export default function Hero({ c }: { c: SiteContent }) {
+  const { hero, ui } = c;
   const [first, second] = hero.greeting;
 
   return (
@@ -17,8 +17,8 @@ export default function Hero() {
         </h1>
         <p className="lead">{hero.subtitle}</p>
         <div className="actions">
-          <a className="btn btn-solid" href="#proyectos">Ver proyectos y negocios <span aria-hidden="true">↓</span></a>
-          <a className="btn btn-ghost" href="#contacto">Escríbeme</a>
+          <a className="btn btn-solid" href="#proyectos">{ui.ctaProjects} <span aria-hidden="true">↓</span></a>
+          <a className="btn btn-ghost" href="#contacto">{ui.ctaContact}</a>
         </div>
       </div>
       <figure className="hero-photo">
@@ -30,7 +30,7 @@ export default function Hero() {
         ) : (
           <div className="photo photo-empty" aria-hidden="true"><span>B.</span></div>
         )}
-        <figcaption className="now"><span className="label">Ahora</span>{hero.now}</figcaption>
+        <figcaption className="now"><span className="label">{ui.now}</span>{hero.now}</figcaption>
       </figure>
     </section>
   );
