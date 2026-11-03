@@ -1,0 +1,7 @@
+# Netlify compila la web estática y publica la carpeta out/.
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "24"
