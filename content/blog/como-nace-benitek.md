@@ -3,7 +3,6 @@ title: Cómo nace Benitek
 description: Por qué, después de estudiar informática y desarrollo de aplicaciones, decidí montar mi propio proyecto de diseño y desarrollo web en Málaga.
 date: 2026-11-03
 tags: Benitek, emprendimiento
-draft: true
 ---
 
 Durante años mi camino fue bastante claro: estudiar informática. Empecé con la FP Básica de Electricidad, seguí con el Grado Medio en Sistemas Microinformáticos y Redes y después hice dos grados superiores, Desarrollo de Aplicaciones Multiplataforma y Desarrollo de Aplicaciones Web. Por el medio trabajé en Italia y en Haleteo, en Estepona.
