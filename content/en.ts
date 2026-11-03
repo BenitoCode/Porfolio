@@ -26,6 +26,7 @@ export const en: SiteContent = {
       { href: "#habilidades", label: "Skills" },
       { href: "#fuera", label: "Beyond code" },
       { href: "#vision", label: "Vision" },
+      { href: "/blog/", label: "Blog (ES)" },
     ],
     navLabel: "Main",
     talk: "Let's talk",
@@ -44,6 +45,19 @@ export const en: SiteContent = {
     copy: "Copy email",
     copied: "Copied",
     footer: "Version 2026 · under construction",
+  },
+
+  now: {
+    label: "Now",
+    title: ["What I'm doing ", "this month", "."],
+    updated: "November 2026",
+    items: [
+      { label: "Building", text: "Benitek: defining the brand, the services and the way I work." },
+      { label: "Learning", text: "Next.js, with the help of AI, on real projects like this site." },
+      { label: "Reading", text: "Man's Search for Meaning, by Viktor Frankl." },
+      { label: "Training", text: "Calisthenics and strength." },
+      { label: "Studying", text: "English, to improve my level." },
+    ],
   },
 
   hero: {
@@ -284,6 +298,25 @@ export const en: SiteContent = {
       { title: "Secrets of the Millionaire Mind", author: "T. Harv Eker" },
       { title: "Man's Search for Meaning", author: "Viktor Frankl", reading: true },
     ],
+  },
+
+  events: {
+    label: "Events and collaborations",
+    title: ["Where I've ", "been", "."],
+    lead: "Talks, networking events, interviews and collaborations.",
+    items: [],
+  },
+
+  blog: {
+    label: "Blog",
+    title: ["What I'm ", "learning", "."],
+    lead: "I write about how I build my projects: what works, what doesn't and what I learn along the way.",
+    note: "Articles are written in Spanish.",
+    all: "See all articles",
+    minutes: "{n} min read",
+    draft: "Draft · not published",
+    back: "Back to the blog",
+    empty: "The first article is coming soon.",
   },
 
   vision: {

@@ -64,6 +64,13 @@ export type SiteContent = {
     footer: string;
   };
 
+  now: {
+    label: string;
+    title: Marked;
+    updated: string;
+    items: { label: string; text: string }[];
+  };
+
   hero: {
     version: string;
     greeting: readonly [string, string];
@@ -110,7 +117,28 @@ export type SiteContent = {
     interests: { label: string; title: string; text: string; big?: boolean }[];
     booksTitle: string;
     readingNow: string;
-    books: { title: string; author: string; reading?: boolean }[];
+    /* cover: portada en public/img/libros/ (2:3). Sin portada se dibuja una tipográfica. */
+    books: { title: string; author: string; reading?: boolean; cover?: Image | null }[];
+  };
+
+  /* Eventos, charlas y colaboraciones reales. La sección aparece cuando hay alguno. */
+  events: {
+    label: string;
+    title: Marked;
+    lead: string;
+    items: { date: string; kind: string; title: string; place: string | null; text: string; url?: string; image?: Image | null }[];
+  };
+
+  blog: {
+    label: string;
+    title: Marked;
+    lead: string;
+    note: string | null;
+    all: string;
+    minutes: string;
+    draft: string;
+    back: string;
+    empty: string;
   };
 
   vision: {

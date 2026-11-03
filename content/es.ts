@@ -31,6 +31,7 @@ export const es: SiteContent = {
       { href: "#habilidades", label: "Habilidades" },
       { href: "#fuera", label: "Fuera del código" },
       { href: "#vision", label: "Visión" },
+      { href: "/blog/", label: "Blog" },
     ],
     navLabel: "Principal",
     talk: "Hablemos",
@@ -49,6 +50,20 @@ export const es: SiteContent = {
     copy: "Copiar correo",
     copied: "Copiado",
     footer: "Versión 2026 · en construcción",
+  },
+
+  now: {
+    label: "Ahora",
+    title: ["En qué estoy ", "este mes", "."],
+    /* Cambia la fecha cada vez que actualices la lista. */
+    updated: "Noviembre de 2026",
+    items: [
+      { label: "Construyendo", text: "Benitek: definiendo la marca, los servicios y la forma de trabajar." },
+      { label: "Aprendiendo", text: "Next.js, con ayuda de la inteligencia artificial, en proyectos reales como esta web." },
+      { label: "Leyendo", text: "«El hombre en busca de sentido», de Viktor Frankl." },
+      { label: "Entrenando", text: "Calistenia y fuerza." },
+      { label: "Estudiando", text: "Inglés, para mejorar mi nivel." },
+    ],
   },
 
   hero: {
@@ -291,6 +306,27 @@ export const es: SiteContent = {
       { title: "Los secretos de la mente millonaria", author: "T. Harv Eker" },
       { title: "El hombre en busca de sentido", author: "Viktor Frankl", reading: true },
     ],
+  },
+
+  events: {
+    label: "Eventos y colaboraciones",
+    title: ["Donde he ", "estado", "."],
+    lead: "Charlas, encuentros de networking, entrevistas y colaboraciones.",
+    /* Ejemplo:
+    { date: "2027-01-15", kind: "Networking", title: "…", place: "Málaga", text: "…", url: "https://…" }, */
+    items: [],
+  },
+
+  blog: {
+    label: "Blog",
+    title: ["Lo que voy ", "aprendiendo", "."],
+    lead: "Cuento cómo construyo mis proyectos: lo que funciona, lo que no y lo que aprendo por el camino.",
+    note: null,
+    all: "Ver todos los artículos",
+    minutes: "{n} min de lectura",
+    draft: "Borrador · no se publica",
+    back: "Volver al blog",
+    empty: "Pronto publicaré el primer artículo.",
   },
 
   vision: {

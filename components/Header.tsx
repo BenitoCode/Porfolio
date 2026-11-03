@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import type { SiteContent } from "@/content/types";
 
 export default function Header({ c }: { c: SiteContent }) {
-  const { ui } = c;
+  const { ui, path } = c;
+  // Los anclajes (#…) apuntan siempre a la portada del idioma, también desde el blog.
+  const to = (href: string) => (href.startsWith("#") ? `${path}${href}` : href);
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
 
@@ -18,20 +20,20 @@ export default function Header({ c }: { c: SiteContent }) {
   return (
     <header className="top">
       <div className="wrap top-inner">
-        <a className="wordmark" href="#inicio" onClick={close}>
+        <a className="wordmark" href={path} onClick={close}>
           Benito Gallardo<span aria-hidden="true" />
         </a>
         <nav id="nav" className={`nav${open ? " open" : ""}`} aria-label={ui.navLabel}>
           {ui.nav.map((link) => (
-            <a key={link.href} href={link.href} onClick={close}>{link.label}</a>
+            <a key={link.href} href={to(link.href)} onClick={close}>{link.label}</a>
           ))}
-          <a className="nav-contact" href="#contacto" onClick={close}>{ui.talk}</a>
+          <a className="nav-contact" href={to("#contacto")} onClick={close}>{ui.talk}</a>
         </nav>
         <div className="top-actions">
           <a className="lang" href={ui.switchTo.href} hrefLang={ui.switchTo.lang} lang={ui.switchTo.lang} aria-label={ui.switchTo.name}>
             {ui.switchTo.short}
           </a>
-          <a className="pill" href="#contacto" onClick={close}>{ui.talk}</a>
+          <a className="pill" href={to("#contacto")} onClick={close}>{ui.talk}</a>
           <button
             type="button"
             className="menu-toggle"
