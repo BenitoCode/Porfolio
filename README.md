@@ -1,42 +1,50 @@
-# Benito Gallardo · Web personal
+# Benito Gallardo · Portafolio personal
 
-Web de marca personal: quién soy, qué negocios estoy construyendo y hacia dónde voy.
-HTML, CSS y JavaScript sin frameworks ni proceso de compilación. Para verla, abre `index.html`.
+Web personal: quién soy, mi historia, mi formación, mis proyectos y negocios, lo que hago fuera del código y hacia dónde voy.
+Hecha con Next.js y exportada como web estática: no necesita servidor ni base de datos.
 
 ## Cómo editar el contenido
 
-Todo el contenido está en **`data/content.js`**. No hace falta tocar el HTML.
+Todo el contenido está en **`content/site.ts`**. No hace falta tocar los componentes.
 
-| Quiero… | Qué cambiar en `data/content.js` |
+| Quiero… | Qué cambiar en `content/site.ts` |
 |---|---|
-| Añadir un negocio o proyecto | Copia un bloque dentro de `businesses` y cambia los textos |
-| Añadir un trabajo para un cliente | Copia un bloque dentro de `clientWork` y cambia los textos |
+| Añadir un negocio, proyecto o trabajo para cliente | Copia un bloque dentro de `projects` (`kind`: `"negocio"`, `"cliente"` o `"personal"`) |
 | Ocultar algo sin borrarlo | `visible: false` |
-| Cambiar el estado de un proyecto | `status`: `"activo"`, `"desarrollo"`, `"proximamente"`, `"exploracion"` o `"entregado"` |
-| Poner mis fotos | Copia la imagen en `assets/img/fotos/` y pon la ruta en `photos.hero.src` o `photos.about.src` |
-| Poner una captura de un negocio | Copia la imagen en `assets/img/negocios/` y pon la ruta en `image.src` del negocio |
-| Contar mi historia | Edita `story.chapters` (un capítulo por etapa) |
+| Cambiar el estado de un proyecto | `status`: `"activo"`, `"publicado"`, `"desarrollo"`, `"idea"` o `null` para no mostrarlo |
+| Poner mi foto de portada | Copia la imagen en `public/img/fotos/` y rellena `hero.photo` con `{ src: "/img/fotos/….webp", alt: "…" }` |
+| Poner una captura de un proyecto | Copia la imagen en `public/img/proyectos/` y rellena `image` del proyecto |
 | Añadir formación o experiencia | Añade una línea en `timeline` |
-| Actualizar "En qué estoy ahora" | Edita `now.items` y la fecha `now.updated` |
-| Publicar vídeos de YouTube | Pon `youtube.channelUrl` y añade vídeos en `youtube.videos` con su `youtubeId` |
-| Añadir artículos o una galería | Rellena `articles` o `gallery`: la sección aparece sola |
-| Añadir Instagram, YouTube… | Añádelo a `person.links` |
+| Mostrar mi correo | Rellena `person.email` |
+| Añadir libros | Rellena `beyond.books`: la lista aparece sola |
+| Poner el dominio definitivo | Rellena `url`: activa canonical y sitemap |
 
-Mientras una foto no tenga `src`, se muestra un espacio reservado neutro.
+Un dato a `null` no se muestra. Los marcados con `POR CONFIRMAR` esperan a que se confirmen.
 
-**Tamaños de foto recomendados:** portada y "Sobre mí" en vertical 4:5 (1200 × 1500 px), capturas de negocios en
-horizontal 21:8 (2100 × 800 px). Mejor en `.webp` y por debajo de 300 KB.
+**Tamaños de imagen recomendados:** portada en vertical 4:5 (1200 × 1500 px); capturas en 16:9 (1600 × 900 px)
+o 21:8 para la tarjeta ancha (2100 × 800 px). Mejor en `.webp` y por debajo de 300 KB.
+
+## Trabajar en local
+
+Requiere Node.js 20 o superior.
+
+```sh
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # genera la web estática en /out
+npm run typecheck  # comprueba los tipos
+```
+
+Para publicar, sube el contenido de `out/` a cualquier alojamiento estático (Netlify, Hostinger…).
 
 ## Estructura
 
 ```
-index.html               Estructura y portada (texto de portada y SEO aquí)
-data/content.js          Todo el contenido editable
-assets/css/styles.css    Sistema visual
-assets/js/components.js  Componentes que pintan el contenido
-assets/js/main.js        Menú, animaciones y copiar email
-assets/img/fotos/        Fotografías personales
-assets/img/negocios/     Capturas de negocios y proyectos
+app/layout.tsx         Fuentes, metadatos y SEO
+app/page.tsx           Orden de las secciones y datos estructurados
+app/globals.css        Sistema visual (colores, tipografía, animaciones)
+components/            Una pieza por sección (Hero, About, Timeline, Projects…)
+content/site.ts        Todo el contenido editable
+public/img/            Fotos y capturas
+pdf/                   CV (no se publica con la web)
 ```
-
-El texto de la portada está escrito directamente en `index.html` para que Google lo lea sin esperar a JavaScript.
