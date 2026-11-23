@@ -2,7 +2,7 @@
 
 ## Proyecto
 - Nombre: Portfolio personal (repo BenitoCode/Porfolio)
-- Tipo: portfolio personal · Skills: web-base
+- Tipo: portfolio personal
 - Objetivo: mostrar quién soy, mi trayectoria, formación, proyectos y negocios; incluye blog.
 
 ## Tecnologías
